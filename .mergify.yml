@@ -3,5 +3,7 @@ pull_request_rules:
     conditions:
       - body-raw~=.*good to merge.* 
     actions:
+      comment:
+        message: Good to merge
       merge:
         method: merge
