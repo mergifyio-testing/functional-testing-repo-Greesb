@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: foo
+  conditions:
+  - base=20220711143443/test_draft_pr_branch_name_template_batch/main
+  - label=queue
+  name: queue
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 2
+  conditions:
+  - check-success=continuous-integration/fake-ci
+  draft_pr_branch_name_template: test/{{merge-branch-ref}}/{{pr-numbers}}
+  name: foo
+  speculative_checks: 2
