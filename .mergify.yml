@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: foo
+  conditions:
+  - base=20220711085915/test_draft_pr_branch_name_template/main
+  - label=queue
+  name: queue
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - check-success=continuous-integration/fake-ci
+  draft_pr_branch_name_template: test/{{@pr-numbers}}
+  name: foo
+  speculative_checks: 2
