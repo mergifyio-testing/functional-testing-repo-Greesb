@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20220713094608/test_queue_with_draft_pr_branch_prefix/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  draft_pr_branch_prefix: mq-
+  name: default
+  speculative_checks: 5
