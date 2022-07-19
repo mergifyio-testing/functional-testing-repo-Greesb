@@ -1,0 +1,17 @@
+ignoreme:
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  - abc123
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20220719140813/test_ignorable_root_key/main
+  name: Merge me
+queue_rules:
+- allow_inplace_checks: true
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 5
