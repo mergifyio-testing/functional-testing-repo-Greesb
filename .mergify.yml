@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: null
+  conditions:
+  - base=20220804102301/test_comment_with_none/main
+  name: comment
