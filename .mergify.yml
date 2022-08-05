@@ -1,0 +1,25 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - or:
+    - label=foo
+    - and:
+      - label=bar
+      - or:
+        - base:foo
+        - and:
+          - base:baz
+          - base=main
+          - or:
+            - author=bot
+            - and:
+              - author:robot
+              - label=robot
+              - or:
+                - '#approved-reviews-by>=1'
+                - or:
+                  - '#review-threads-unresolved=0'
+                  - label=skip
+  name: huge nest
