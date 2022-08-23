@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=20220823125127/test_pull_request_rules_order_1_depth_all_invalid/main
+  - label=test
+  - all:
+    - base=test
+    - base=test2
+  name: test
