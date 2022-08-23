@@ -1,0 +1,5 @@
+pull_request_rules:
+- conditions:
+  - base=20220823124015/test_pull_request_rules_order/main
+  - label=test
+  name: test
