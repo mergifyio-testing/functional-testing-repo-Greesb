@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    rebase:
+      autosquash: true
+  conditions:
+  - base=20220829083025/test_rebase_autosquash/main
+  - label=rebase
+  name: rebase
+- actions:
+    delete_head_branch: {}
+    merge: {}
+  conditions:
+  - base=20220829083025/test_rebase_autosquash/main
+  - label=merge
+  name: merge
