@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: foo
+  conditions:
+  - base=20220831073027/test_estimated_time_of_merge/main
+  - label=queue
+  name: queue
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - base=20220831073027/test_estimated_time_of_merge/main
+  name: foo
