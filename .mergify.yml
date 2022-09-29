@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: it works
+  conditions:
+  - base=20220929145235/test_pull_refreshed_after_config_change/main
+  name: default
