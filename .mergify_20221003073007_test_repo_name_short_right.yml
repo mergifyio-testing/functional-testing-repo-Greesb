@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: repository name short
+  conditions:
+  - repository-name=functional-testing-repo-Greesb
+  name: no-draft
