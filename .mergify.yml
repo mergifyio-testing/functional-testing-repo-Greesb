@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      unknown: hello
+  conditions:
+  - base=main
+  name: foobar
