@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221004081959/test_queue_rules_order_0_depth/main
+  - label=queue
+  name: test
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 2
+  conditions:
+  - base=fail
+  - base=20221004081959/test_queue_rules_order_0_depth/main
+  - label=test
+  name: default
+  speculative_checks: 2
