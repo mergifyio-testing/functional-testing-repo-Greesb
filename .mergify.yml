@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20221004092345/test_queue_with_labels/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  - label=foobar
+  name: default
+  speculative_checks: 5
