@@ -1,0 +1,16 @@
+commands_restrictions:
+  copy:
+    conditions:
+    - base=new_rule
+extends: .github
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=new_rule
+  name: merge on main
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - 'schedule: MON-FRI 08:00-17:00'
+  name: new_rule
