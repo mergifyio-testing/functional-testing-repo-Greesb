@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: repository name full (wrong)
+  conditions:
+  - repository-full-name!=functional-testing-repo-Greesb
+  name: no-draft
