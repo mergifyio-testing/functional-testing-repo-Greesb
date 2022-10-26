@@ -1,0 +1,4 @@
+pull_request_rules:
+- actions: {}
+  conditions: []
+  name: noop
