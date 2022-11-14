@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: foo
+  conditions:
+  - base=20221114141028/test_estimated_time_of_merge_normal/main
+  - label=queue
+  name: queue
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - base=20221114141028/test_estimated_time_of_merge_normal/main
+  - check-success=continuous-integration/fake-ci
+  name: foo
