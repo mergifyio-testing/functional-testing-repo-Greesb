@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    rebase: {}
+  conditions:
+  - label=rebase
+  name: rebase
