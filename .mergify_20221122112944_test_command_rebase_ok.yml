@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: nothing
+  conditions:
+  - label=rebase
+  name: auto-rebase-on-label
