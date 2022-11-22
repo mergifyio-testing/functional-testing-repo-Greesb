@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    post_check: {}
+  conditions:
+  - check-timed-out=lazy-ci
+  name: check-run-timeout-state
