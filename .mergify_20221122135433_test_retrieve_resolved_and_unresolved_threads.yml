@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: conditions matched; s u c c e s s
+  conditions:
+  - '#review-threads-resolved=2'
+  - '#review-threads-unresolved=1'
+  - review-threads-resolved="yes, you can"
+  - review-threads-unresolved="INDEED"
+  name: resolved-threads
