@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221125094800/test_queue_with_ci_and_files/main
+  - label=queue
+  name: Queue
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - or:
+    - status-success=continuous-integration/fake-ci
+    - files~=^.*\.rst$
+  name: default
