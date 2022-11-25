@@ -4,9 +4,10 @@ pull_request_rules:
       name: default
   conditions:
   - base=20221125094407/test_queue_rule_deleted/main
-  name: Merge me
+  - label=automerge
+  name: Merge only if label is present
 queue_rules:
-- allow_inplace_checks: true
+- allow_inplace_checks: false
   conditions:
   - status-success=continuous-integration/fake-ci
   name: default
