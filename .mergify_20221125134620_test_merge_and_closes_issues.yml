@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20221125134620/test_merge_and_closes_issues/main
+  name: Merge on main
