@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20221128083422/test_depends_on/main
+  - label=automerge
+  name: merge
