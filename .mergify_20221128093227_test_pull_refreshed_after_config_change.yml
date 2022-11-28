@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: it works
+  conditions:
+  - base=other
+  name: default
