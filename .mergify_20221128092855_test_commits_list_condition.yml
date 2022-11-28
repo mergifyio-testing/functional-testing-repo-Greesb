@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: list commits not empty
+  conditions:
+  - 'commits~=test_commits_list_condition: pull request n1 from integration'
+  name: list_commits
