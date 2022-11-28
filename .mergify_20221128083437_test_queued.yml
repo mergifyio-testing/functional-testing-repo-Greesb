@@ -1,0 +1,28 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221128083437/test_queued/main
+  - label=ready-to-merge
+  name: Merge priority high
+- actions:
+    label:
+      add:
+      - queued
+  conditions:
+  - base=20221128083437/test_queued/main
+  - queue-position>=0
+  name: Add queued label
+- actions:
+    label:
+      remove:
+      - queued
+  conditions:
+  - base=20221128083437/test_queued/main
+  - queue-position=-1
+  name: Remove queued label
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
