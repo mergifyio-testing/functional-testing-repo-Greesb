@@ -3,5 +3,5 @@ pull_request_rules:
     comment:
       message: it works
   conditions:
-  - base=other
+  - base=20221128093227/test_pull_refreshed_after_config_change/main
   name: default
