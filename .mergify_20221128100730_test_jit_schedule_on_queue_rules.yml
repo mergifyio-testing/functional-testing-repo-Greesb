@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221128100730/test_jit_schedule_on_queue_rules/main
+  name: fast queue
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - 'schedule: MON-FRI 08:00-17:00'
+  name: default
