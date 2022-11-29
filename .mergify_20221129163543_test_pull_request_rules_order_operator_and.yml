@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=20221129163543/test_pull_request_rules_order_operator_and/main
+  - label=test
+  - and:
+    - label=test2
+    - label=test3
+  name: test
