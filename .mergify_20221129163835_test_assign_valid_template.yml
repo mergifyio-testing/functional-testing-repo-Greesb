@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    assign:
+      users:
+      - '{{author}}'
+  conditions:
+  - base=20221129163835/test_assign_valid_template/main
+  name: assign
