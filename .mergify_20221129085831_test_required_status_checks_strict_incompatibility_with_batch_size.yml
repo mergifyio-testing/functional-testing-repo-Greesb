@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221129085831/test_required_status_checks_strict_incompatibility_with_batch_size/main
+  name: Merge
+queue_rules:
+- allow_inplace_checks: true
+  batch_size: 2
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 1
