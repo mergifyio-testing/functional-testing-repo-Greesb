@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: no way
+  conditions:
+  - base=20221129163259/test_summary_html_escape/main
+  - label=<h1>foo</h1>bar
+  name: no <i>manual</i> merge
