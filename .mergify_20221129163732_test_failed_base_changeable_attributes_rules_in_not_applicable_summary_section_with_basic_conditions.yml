@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=dummy
+  name: invalid rule dummy
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=20221129163732/test_failed_base_changeable_attributes_rules_in_not_applicable_summary_section_with_basic_conditions/main
+  name: valid rule main
