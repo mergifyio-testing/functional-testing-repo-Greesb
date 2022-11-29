@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    comment:
+      bot_account: '{{ body }}'
+      message: WTF?
+  conditions:
+  - base=20221129163336/test_deprecated_multiple_rules_with_same_name/main
+  name: comment
+- actions:
+    comment:
+      bot_account: '{{ body }}'
+      message: Ola quetal?
+  conditions:
+  - base=20221129163336/test_deprecated_multiple_rules_with_same_name/main
+  name: comment
