@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    delete_head_branch:
+      force: true
+  conditions:
+  - base=20221201091541/test_delete_branch_with_dep_force/main
+  - label=merge
+  - merged
+  name: delete on merge
