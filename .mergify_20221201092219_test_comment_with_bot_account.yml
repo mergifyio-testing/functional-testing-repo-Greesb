@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    comment:
+      bot_account: mergify-test4
+      message: WTF?
+  conditions:
+  - base=20221201092219/test_comment_with_bot_account/main
+  name: comment
