@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    label:
+      toggle:
+      - CI:fail
+  conditions:
+  - base=20221201091803/test_label_toggle/main
+  - check-failure=continuous-integration/fake-ci
+  name: toggle labels
