@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20221201092745/test_merge_branch_protection_strict/main
+  name: merge
