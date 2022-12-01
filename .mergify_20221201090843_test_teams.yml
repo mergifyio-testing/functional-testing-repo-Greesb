@@ -1,0 +1,33 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=20221201090843/test_teams/main
+  - status-success=continuous-integration/fake-ci
+  - approved-reviews-by=@mergifyio-testing/testing
+  name: valid teams
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=20221201090843/test_teams/main
+  - status-success=continuous-integration/fake-ci
+  - approved-reviews-by=@testing
+  name: short teams
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=20221201090843/test_teams/main
+  - status-success=continuous-integration/fake-ci
+  - approved-reviews-by=@mergifyio-testing/noexists
+  name: not exists teams
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=20221201090843/test_teams/main
+  - status-success=continuous-integration/fake-ci
+  - approved-reviews-by=@another-org/testing
+  name: invalid organization
