@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    merge:
+      merge_bot_account: '{{ body }}'
+  conditions:
+  - base=20221201092134/test_merge_with_oauth_token/main
+  name: merge on main
