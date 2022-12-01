@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    review:
+      type: APPROVE
+  conditions:
+  - base=20221201093832/test_review_normal/main
+  name: approve
+- actions:
+    review:
+      message: WTF?
+      type: REQUEST_CHANGES
+  conditions:
+  - base=20221201093832/test_review_normal/main
+  - '#approved-reviews-by>=1'
+  name: requested
