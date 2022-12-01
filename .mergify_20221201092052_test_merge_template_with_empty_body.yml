@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    merge:
+      commit_message_template: '{{ title }} (#{{ number }})
+
+
+        {{body}}
+
+        '
+  conditions:
+  - base=20221201092052/test_merge_template_with_empty_body/main
+  name: merge on main
