@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    close:
+      message: Thank you {{
+  conditions:
+  - base=20221201091427/test_close_template_syntax_error/main
+  name: close
