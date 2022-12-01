@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: fast-forward
+  conditions:
+  - base=20221201091954/test_merge_fastforward_basic/main
+  name: merge on main
