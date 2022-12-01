@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    edit:
+      draft: false
+  conditions:
+  - base=20221201091941/test_ready_for_review_already_converted/main
+  name: convert Pull Request to Draft
