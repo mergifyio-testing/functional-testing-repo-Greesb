@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221201091535/test_statistics_format_in_redis/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 2
+  conditions: []
+  name: default
+  speculative_checks: 5
