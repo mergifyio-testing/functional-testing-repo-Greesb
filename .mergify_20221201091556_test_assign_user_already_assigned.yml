@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    assign:
+      add_users:
+      - mergify-test1
+  conditions:
+  - base=20221201091556/test_assign_user_already_assigned/main
+  name: assign
