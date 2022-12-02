@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: rebase
+  conditions:
+  - base=20221202144640/test_backport_conflicts/main
+  - label=backport-#3.1
+  name: Merge on main
+- actions:
+    backport:
+      branches:
+      - 20221202144640/test_backport_conflicts/stable/#3.1
+      ignore_conflicts: false
+  conditions:
+  - base=20221202144640/test_backport_conflicts/main
+  - label=backport-#3.1
+  name: Backport to stable/#3.1
