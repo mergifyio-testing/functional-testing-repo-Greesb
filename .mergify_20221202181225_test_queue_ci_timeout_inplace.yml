@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221202181225/test_queue_ci_timeout_inplace/main
+  - check-success=continuous-integration/fake-ci
+  name: queue
+queue_rules:
+- checks_timeout: 10 m
+  conditions:
+  - check-success=continuous-integration/fake-ci
+  name: default
