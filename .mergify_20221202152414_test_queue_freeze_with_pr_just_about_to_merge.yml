@@ -1,0 +1,21 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: urgent
+  conditions:
+  - base=20221202152414/test_queue_freeze_with_pr_just_about_to_merge/main
+  - label=queue-urgent
+  name: Merge priority high
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221202152414/test_queue_freeze_with_pr_just_about_to_merge/main
+  - label=queue
+  name: Merge default
+queue_rules:
+- conditions: []
+  name: urgent
+- conditions:
+  - status-success=continuous-integration/slow-ci
+  name: default
