@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base!=20221202143206/test_refresh_via_check_suite_rerequest/main
+  name: nothing
