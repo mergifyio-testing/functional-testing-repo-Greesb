@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    dismiss_reviews:
+      approved: true
+  conditions:
+  - base=20221202201545/test_dismiss_reviews_ignored/main
+  name: dismiss reviews
