@@ -1,0 +1,33 @@
+pull_request_rules:
+- actions:
+    post_check:
+      summary: '
+
+        Full markdown of my awesome pull request guideline:
+
+
+        * Mandatory stuff about title
+
+        * Need a ticket number
+
+        * Please explain what your trying to achieve
+
+
+        Rule list:
+
+
+        {{ check_conditions }}
+
+
+        '
+      title: 'Pull request #{{ number }} does{% if not check_succeed %} not{% endif
+        %} follow our guideline'
+  conditions:
+  - base=20221202144158/test_checks_custom/main
+  - '#title>10'
+  - '#title<50'
+  - '#body<4096'
+  - '#files<100'
+  - body~=(?m)^(Fixes|Related|Closes) (MERGIFY-ENGINE|MRGFY)-
+  - -label=ignore-guideline
+  name: body need sentry ticket
