@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    delete_head_branch: null
+  conditions:
+  - base=20221202142854/test_delete_branch_basic/main
+  - label=merge
+  - merged
+  name: delete on merge
+- actions:
+    delete_head_branch: {}
+  conditions:
+  - base=20221202142854/test_delete_branch_basic/main
+  - label=close
+  - closed
+  name: delete on close
