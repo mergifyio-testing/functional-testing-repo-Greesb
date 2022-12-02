@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: Thank you {{author}}
+  conditions:
+  - base=20221202201505/test_comment_template/main
+  name: comment
