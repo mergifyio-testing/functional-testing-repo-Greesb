@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    dismiss_reviews:
+      approved: true
+      changes_requested:
+      - mergify-test1
+  conditions:
+  - base=20221202201349/test_dismiss_reviews/main
+  name: dismiss reviews
