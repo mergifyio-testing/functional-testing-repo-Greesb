@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: WTF?
+  conditions:
+  - base=20221202201142/test_comment/main
+  name: comment
