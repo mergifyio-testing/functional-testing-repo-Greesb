@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    request_reviews:
+      random_count: 2
+      users_from_teams:
+      - testing
+      - bot
+  conditions:
+  - base=20221202203607/test_request_reviews_users_from_teams/main
+  name: request_reviews
