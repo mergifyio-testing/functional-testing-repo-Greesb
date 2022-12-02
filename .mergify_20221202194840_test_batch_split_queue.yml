@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20221202194840/test_batch_split_queue/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- batch_max_wait_time: 0 s
+  batch_size: 3
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 2
