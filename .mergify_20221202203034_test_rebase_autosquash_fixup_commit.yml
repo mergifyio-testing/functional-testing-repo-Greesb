@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    rebase:
+      autosquash: true
+  conditions:
+  - base=20221202203034/test_rebase_autosquash_fixup_commit/main
+  - label=rebase
+  name: rebase
