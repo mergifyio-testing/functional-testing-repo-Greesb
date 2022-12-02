@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    request_reviews:
+      users:
+      - MeRgiFy-teSt1
+  conditions:
+  - base=20221202165832/test_request_reviews_users/main
+  name: request_reviews
