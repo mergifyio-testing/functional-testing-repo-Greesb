@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    post_check: {}
+  conditions:
+  - base=20221202145137/test_checks_feature_disabled/main
+  - '#title>10'
+  - '#title<50'
+  - '#body<4096'
+  - '#files<100'
+  - body~=(?m)^(Fixes|Related|Closes) (MERGIFY-ENGINE|MRGFY)-
+  - -label=ignore-guideline
+  name: body need sentry ticket
