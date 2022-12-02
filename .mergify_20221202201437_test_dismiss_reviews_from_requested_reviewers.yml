@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    dismiss_reviews:
+      approved: from_requested_reviewers
+      when: always
+  conditions:
+  - base=20221202201437/test_dismiss_reviews_from_requested_reviewers/main
+  name: dismiss reviews
