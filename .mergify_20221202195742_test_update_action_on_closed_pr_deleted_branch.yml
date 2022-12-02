@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    update: {}
+  conditions:
+  - base=20221202195742/test_update_action_on_closed_pr_deleted_branch/main
+  name: update
+- actions:
+    delete_head_branch: {}
+    merge: {}
+  conditions:
+  - base=20221202195742/test_update_action_on_closed_pr_deleted_branch/main
+  - label=merge
+  name: merge
