@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    assign:
+      remove_users:
+      - mergify-test1
+  conditions:
+  - base=20221202144541/test_remove_assignee/main
+  name: assign
