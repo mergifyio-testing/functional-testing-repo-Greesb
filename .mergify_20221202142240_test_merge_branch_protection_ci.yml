@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: yo
+    merge:
+      method: rebase
+  conditions:
+  - base=20221202142240/test_merge_branch_protection_ci/main
+  name: merge
