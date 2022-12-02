@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    rebase: {}
+  conditions:
+  - base=20221202202117/test_rebase_ok/main
+  name: rebase
