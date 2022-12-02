@@ -1,0 +1,5 @@
+pull_request_rules:
+- actions: {}
+  conditions:
+  - base=20221202173207/test_simulator_with_token/main
+  name: simulator
