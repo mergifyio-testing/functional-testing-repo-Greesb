@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: review-requested user
+  conditions:
+  - base=20221202143252/test_requested_reviews/main
+  - review-requested=mergify-test4
+  name: user
+- actions:
+    comment:
+      message: review-requested team
+  conditions:
+  - base=20221202143252/test_requested_reviews/main
+  - review-requested=@testing
+  name: team
