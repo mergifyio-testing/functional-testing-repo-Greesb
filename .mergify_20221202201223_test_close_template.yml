@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    close:
+      message: Thank you {{author}}
+  conditions:
+  - base=20221202201223/test_close_template/main
+  name: close
