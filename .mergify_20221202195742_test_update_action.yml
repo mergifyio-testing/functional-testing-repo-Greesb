@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    update: {}
+  conditions:
+  - base=20221202195742/test_update_action/main
+  name: update
+- actions:
+    merge: {}
+  conditions:
+  - base=20221202195742/test_update_action/main
+  - label=merge
+  name: merge
