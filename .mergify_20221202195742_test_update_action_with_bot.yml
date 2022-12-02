@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    update:
+      bot_account: mergify-test4
+  conditions:
+  - base=20221202195742/test_update_action_with_bot/main
+  name: update
+- actions:
+    merge: {}
+  conditions:
+  - base=20221202195742/test_update_action_with_bot/main
+  - label=merge
+  name: merge
