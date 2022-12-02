@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    close:
+      message: Thank you {{hello}}
+  conditions:
+  - base=20221202201037/test_close_template_attribute_error/main
+  name: close
