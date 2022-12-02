@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20221202203034/test_train_car_state_waiting_for_schedule_after_pr_ahead_dequeued/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: true
+  batch_max_wait_time: 0 s
+  batch_size: 3
+  conditions:
+  - schedule=MON-FRI 08:00-17:00[UTC]
+  name: default
+  speculative_checks: 1
