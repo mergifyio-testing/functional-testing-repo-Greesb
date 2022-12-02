@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    label:
+      add:
+      - unstable
+      - foobar
+      - vector
+      remove:
+      - stable
+      - what
+      - remove-me
+  conditions:
+  - base=20221202143631/test_label_basic/main
+  name: rename label
