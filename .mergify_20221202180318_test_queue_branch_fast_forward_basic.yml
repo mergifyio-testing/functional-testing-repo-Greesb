@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221202180318/test_queue_branch_fast_forward_basic/main
+  - label=queue
+  name: Queue
+queue_rules:
+- allow_inplace_checks: false
+  batch_max_wait_time: 0 s
+  batch_size: 3
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_branch_merge_method: fast-forward
+  speculative_checks: 5
