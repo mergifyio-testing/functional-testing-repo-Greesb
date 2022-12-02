@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    merge:
+      merge_bot_account: '{{ body }}'
+      method: fast-forward
+  conditions:
+  - base=20221202144513/test_merge_fastforward_bot_account/main
+  name: merge on main
