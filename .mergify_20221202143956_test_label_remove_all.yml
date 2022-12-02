@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    label:
+      remove_all: true
+  conditions:
+  - base=20221202143956/test_label_remove_all/main
+  - label=stable
+  name: delete all labels
