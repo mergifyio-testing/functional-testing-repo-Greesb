@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20221202143947/test_merge_with_installation_token/main
+  name: merge on main
