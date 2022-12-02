@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    review:
+      message: Thank you {{
+      type: REQUEST_CHANGES
+  conditions:
+  - base=20221202152306/test_review_template_syntax_error/main
+  name: review
