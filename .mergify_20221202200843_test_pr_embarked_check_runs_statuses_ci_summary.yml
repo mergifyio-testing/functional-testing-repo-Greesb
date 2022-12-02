@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20221202200843/test_pr_embarked_check_runs_statuses_ci_summary/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fail-ci
+  - status-success=continuous-integration/pending-ci
+  - status-success=continuous-integration/success-ci
+  name: default
+  speculative_checks: 5
