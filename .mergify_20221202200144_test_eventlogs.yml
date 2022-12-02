@@ -1,0 +1,21 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: Hello!
+  conditions:
+  - base=20221202200144/test_eventlogs/main
+  - label=auto-merge
+  name: hello
+- actions:
+    assign:
+      users:
+      - mergify-test1
+    label:
+      add:
+      - need-review
+      remove:
+      - auto-merge
+    merge: {}
+  conditions:
+  - base=20221202200144/test_eventlogs/main
+  name: mergeit
