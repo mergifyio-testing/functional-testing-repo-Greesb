@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221202153702/test_unqueue/main
+  name: Queue
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
