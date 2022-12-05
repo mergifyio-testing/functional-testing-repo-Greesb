@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221205084351/test_queue_no_tmp_pull_request/main
+  - label=queue
+  name: Merge train
+queue_rules:
+- allow_inplace_checks: true
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 5
