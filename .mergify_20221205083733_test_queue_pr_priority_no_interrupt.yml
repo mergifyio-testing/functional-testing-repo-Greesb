@@ -1,0 +1,23 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20221205083733/test_queue_pr_priority_no_interrupt/main
+  - label=high
+  name: Merge priority high
+- actions:
+    queue:
+      name: default
+      priority: low
+  conditions:
+  - base=20221205083733/test_queue_pr_priority_no_interrupt/main
+  - label=low
+  name: Merge priority low
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - status-success=continuous-integration/slow-ci
+  name: default
+  speculative_checks: 5
