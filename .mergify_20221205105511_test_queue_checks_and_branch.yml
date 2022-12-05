@@ -1,0 +1,26 @@
+
+queue_rules:
+  - name: default
+    conditions:
+      - "check-success=Summary"
+      - "check-success=ci/status"
+      - "check-success=ci/service-test"
+      - "check-success=ci/pipelines"
+      - "#approved-reviews-by>=1"
+      - "-label=flag:wait"
+
+pull_request_rules:
+  - name: merge
+    conditions:
+      - "-draft"
+      - "-closed"
+      - "-merged"
+      - "-conflict"
+      - "base=20221205105511/test_queue_checks_and_branch/main"
+      - "label=flag:merge"
+    actions:
+      queue:
+        name: default
+        priority: medium
+        update_method: rebase
+        require_branch_protection: false
