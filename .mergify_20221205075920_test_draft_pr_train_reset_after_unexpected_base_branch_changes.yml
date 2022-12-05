@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221205075920/test_draft_pr_train_reset_after_unexpected_base_branch_changes/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: true
+  batch_max_wait_time: 0 s
+  batch_size: 3
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 2
