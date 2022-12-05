@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221205084036/test_queue_ci_timeout_outside_schedule/main
+  - check-success=continuous-integration/fake-ci
+  name: queue
+queue_rules:
+- allow_inplace_checks: false
+  checks_timeout: 10 m
+  conditions:
+  - or:
+    - check-success=continuous-integration/fake-ci
+    - check-success=continuous-integration/other-ci
+  - 'schedule: MON-FRI 08:00-17:00'
+  name: default
