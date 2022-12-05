@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221205092220/test_time_to_merge_endpoint_with_freeze/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 2
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 5
