@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20221205081519/test_more_ci_in_pull_request_rules_failure/main
+  - status-success=continuous-integration/fake-ci
+  - status-success=very-long-ci
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
