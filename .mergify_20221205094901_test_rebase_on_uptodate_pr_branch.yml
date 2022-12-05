@@ -1,0 +1,20 @@
+pull_request_rules:
+- actions:
+    rebase: {}
+  conditions:
+  - base=20221205094901/test_rebase_on_uptodate_pr_branch/main
+  - label=rebase
+  name: rebase
+- actions:
+    delete_head_branch: {}
+    merge: {}
+  conditions:
+  - base=20221205094901/test_rebase_on_uptodate_pr_branch/main
+  - label=merge
+  name: merge
+- actions:
+    update: {}
+  conditions:
+  - base=20221205094901/test_rebase_on_uptodate_pr_branch/main
+  - label=update
+  name: update
