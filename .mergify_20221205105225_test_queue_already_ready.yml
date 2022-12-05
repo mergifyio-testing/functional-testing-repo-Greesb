@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20221205105225/test_queue_already_ready/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- conditions:
+  - label=queue
+  name: default
