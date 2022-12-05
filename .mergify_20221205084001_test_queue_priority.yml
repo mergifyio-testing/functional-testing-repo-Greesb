@@ -1,0 +1,24 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: urgent
+  conditions:
+  - base=20221205084001/test_queue_priority/main
+  - label=queue-urgent
+  name: Merge priority high urgent
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20221205084001/test_queue_priority/main
+  - label=queue
+  name: Merge priority high default
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fast-ci
+  name: urgent
+  speculative_checks: 5
+- conditions:
+  - status-success=continuous-integration/slow-ci
+  name: default
+  speculative_checks: 5
