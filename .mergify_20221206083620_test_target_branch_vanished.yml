@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20221206083620/test_target_branch_vanished/featureA
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 1
