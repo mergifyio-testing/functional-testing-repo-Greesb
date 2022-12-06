@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: repository name short (wrong)
+  conditions:
+  - repository-name!=mergifyio-testing/functional-testing-repo-Greesb
+  name: no-draft
