@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: long time no see
+  conditions:
+  - commits[-1].date_committer < 1 day ago
+  name: test-commits
