@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: review required by codeowners
+  conditions:
+  - -branch-protection-codeowners-reviewed
+  name: codeowners review required
+- actions:
+    comment:
+      message: review done by codeowners
+  conditions:
+  - branch-protection-codeowners-reviewed
+  name: codeowners review done
