@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    label:
+      add:
+      - branch:{{base}}
+  conditions:
+  - base=20230117134521/test_label_template/main
+  name: add branch label
