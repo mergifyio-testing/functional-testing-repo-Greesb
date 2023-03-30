@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    queue:
+      autosquash: true
+      name: default
+      update_bot_account: mergify-test4
+      update_method: rebase
+  conditions:
+  - base=20230330125431/test_queue_inplace_uptodate_autosquash_true/main
+  - label=queue
+  name: Automatic merge
+queue_rules:
+- allow_inplace_checks: true
+  batch_size: 0
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 0
