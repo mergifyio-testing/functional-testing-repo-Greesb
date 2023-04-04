@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    queue:
+      priority: high
+  conditions:
+  - base=20230404100758/test_priority_brownout/main
+  - label=high
+  - status-success=continuous-integration/fake-ci
+  name: Merge priority high
