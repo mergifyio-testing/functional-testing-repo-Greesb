@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20230406073651/test_draft_pr_with_branch_protection_on_everything/main
+  - label=queue
+  name: Queue on label
+queue_rules:
+- allow_inplace_checks: false
+  conditions: []
+  name: default
