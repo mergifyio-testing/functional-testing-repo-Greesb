@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    queue:
+      method: fast-forward
+      name: default
+      update_method: rebase
+  conditions:
+  - base=20230406082755/test_draft_pr_with_branch_protection_on_everything/main
+  - label=queue
+  name: Queue on label
+queue_rules:
+- conditions:
+  - '#approved-reviews-by>=1'
+  - '#review-requested=0'
+  - '#changes-requested-reviews-by=0'
+  - label=ready-to-merge
+  name: default
