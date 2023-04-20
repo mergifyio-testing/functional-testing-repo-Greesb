@@ -1,0 +1,22 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      priority: high
+  conditions:
+  - base=20230420163322/test_queue_with_two_pull_request_rules_that_match_then_unmatch/main
+  - label=high
+  name: Merge priority high
+- actions:
+    queue:
+      name: default
+      priority: low
+  conditions:
+  - base=20230420163322/test_queue_with_two_pull_request_rules_that_match_then_unmatch/main
+  - label=low
+  name: Merge priority low
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
