@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20230420095120/test_approved_reviews_by_team_valid/main
+  - '#approved-reviews-by-team-testing>=1'
+  name: merge
