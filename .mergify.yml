@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: your commits are old
+  conditions:
+  - base=20230420071826/test_commits_updated_at/main
+  - commits-updated-at=2 days ago
+  name: comment on old commits
