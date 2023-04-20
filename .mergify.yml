@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20230420095139/test_approved_reviews_by_team_with_non_existant_team/main
+  - '#approved-reviews-by-team-abcdefghijkl>=3'
+  name: merge
