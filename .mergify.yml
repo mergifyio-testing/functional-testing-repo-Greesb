@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20230424080752/test_conflict_with_base_branch_check_run_message/main
+  - label=queue
+  name: Merge on queue label
+queue_rules:
+- conditions: []
+  name: default
