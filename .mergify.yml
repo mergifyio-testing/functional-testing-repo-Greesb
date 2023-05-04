@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      method: rebase
+      name: default
+  conditions:
+  - base=20230504064524/test_strict_branch_status_check_with_draft_pr/main
+  - label=ready-to-merge
+  name: Queue on label
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
