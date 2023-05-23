@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20230523105516/test_queue_routing_conditions_empty/main
+  - label=queue
+  name: Queue
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  routing_conditions: []
