@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: Could you please fix the conflicts @{{author}}?
+    label:
+      add:
+      - conflict
+  conditions:
+  - conflict
+  - -closed
+  name: label on conflict
+queue_rules:
+- name: default
+  routing_conditions:
+  - label=default
+- name: notdefault
+  routing_conditions:
+  - label=notdefault
