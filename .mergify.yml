@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions: []
+  name: Merge
+queue_rules:
+- name: default
+  routing_conditions:
+  - label=default
+- name: notdefault
+  routing_conditions:
+  - label=notdefault
