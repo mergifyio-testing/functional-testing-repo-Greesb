@@ -1,0 +1,7 @@
+queue_rules:
+- name: default
+  routing_conditions:
+  - label=default
+- name: notdefault
+  routing_conditions:
+  - label=notdefault
