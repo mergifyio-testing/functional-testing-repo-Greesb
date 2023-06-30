@@ -1,0 +1,7 @@
+queue_rules:
+- name: default
+  routing_conditions:
+  - label=default
+- name: quwu
+  routing_conditions:
+  - label=uwu
