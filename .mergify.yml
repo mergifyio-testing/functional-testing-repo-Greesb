@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20230630090505/test_routing_conditions_with_branch_protections/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- name: default
+  routing_conditions:
+  - label=default
+- name: quwu
+  routing_conditions:
+  - label=uwu
