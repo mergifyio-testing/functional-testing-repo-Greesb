@@ -1,0 +1,219 @@
+defaults:
+  actions:
+    queue:
+      allow_merging_configuration_change: true
+      name: default
+      method: squash
+      commit_message_template: |
+        {{ title }} (#{{ number }})
+
+        {{ body }}
+    squash:
+      commit_message: first-commit
+      bot_account: mergify-ci-bot
+
+pull_request_rules:
+  - name: dismiss reviews
+    conditions: []
+    actions:
+      dismiss_reviews: {}
+
+  - name: warn on conflicts
+    conditions:
+      - conflict
+      - -closed
+    actions:
+      comment:
+        message: "@{{author}} this pull request is now in conflict 😩"
+      label:
+        toggle:
+          - conflict
+
+  - name: label on unresolved
+    conditions:
+      - "#review-threads-unresolved>0"
+    actions:
+      label:
+        toggle:
+          - review threads unresolved
+
+  - name: warn on CI failure for hotfix
+    conditions:
+      - label=hotfix
+      - "#check-failure>0"
+    actions:
+      comment:
+        message: Your hotfix is failing CI @{{author}} 🥺
+
+  - name: changelog requirements
+    conditions:
+      - or:
+          - "-title~=^feat"
+          - label=skip changelog
+          - label=need changelog
+    actions:
+      post_check:
+        title: |
+          {% if check_succeed %}
+          Changelog requirements are present.
+          {% else %}
+          Changelog requirements are missing.
+          {% endif %}
+
+
+  - name: label on queued
+    conditions:
+      - queue-position>=0
+    actions:
+      label:
+        toggle:
+          - 'queued'
+
+queue_rules:
+  - name: hotfix
+    allow_inplace_checks: true
+    queue_conditions: &HotfixConditions
+      - check-success=semantic-pull-request
+      - "check-success=Rule: testing requirements (post_check)"
+      - or:
+          # Author is engineering manager, we allow with one review
+          - and:
+              - author=@eng-mgr
+              - "#approved-reviews-by>=1"
+          - and:
+              - author=@devs
+              # in any other case, we allow if approve by engineering manager
+              # or anyone if it's a regular fix/revert
+              - or:
+                  - approved-reviews-by=@eng-mgr
+                  - and:
+                      - title~=^(revert|fix)
+                      - "#approved-reviews-by>=1"
+      - label=hotfix
+      - "#changes-requested-reviews-by=0"
+      - "#review-requested=0"
+    merge_conditions:
+      - and: &CheckRuns
+          - or:
+              - -label=docker
+              - and:
+                  - check-success=docker-saas
+                  - check-success=docker-onpremise
+          - check-success=semantic-pull-request
+          - check-success=import-checks
+          - check-success=pep8
+          - check-success=semgrep
+          - check-success=secrets-leakage
+          - check-success=test (1)
+          - check-success=test (2)
+          - check-success=test (3)
+          - check-success=test (4)
+          - check-success=test (5)
+          - check-success=docs
+    speculative_checks: 5
+
+  - name: default
+    allow_inplace_checks: true
+    queue_conditions: &DefaultConditions
+      - and: *CheckRuns
+      - "check-success=Rule: feature requirements (post_check)"
+      - "check-success=Rule: testing requirements (post_check)"
+      - "check-success=Rule: changelog requirements (post_check)"
+      - "#approved-reviews-by>=2"
+      - "#changes-requested-reviews-by=0"
+      - "#review-threads-unresolved=0"
+      - "#review-requested=0"
+    merge_conditions:
+      - and: *CheckRuns
+      - schedule=Mon-Fri 09:00-17:30[Europe/Paris]
+    speculative_checks: 5
+
+  - name: lowprio
+    allow_inplace_checks: true
+    queue_conditions: &LowprioConditions
+      - and: *CheckRuns
+      - "#commits=1"
+      - or:
+          - and:
+              - author=mergify-ci-bot
+              - head~=^clifus/
+              - "title~=^chore: bump"
+          - and:
+              - author=mergify-ci-bot
+              - head=trivy/daily-report
+              - label!=new CVE
+          - author=dependabot[bot]
+    merge_conditions:
+      - and: *CheckRuns
+      - schedule=Mon-Fri 09:00-17:00[Europe/Paris]
+    merge_method: merge
+    batch_size: 7
+    batch_max_wait_time: 5min
+    commit_message_template: null
+    queue_branch_merge_method: fast-forward
+    disallow_checks_interruption_from_queues:
+      - default
+
+pull_request_rules:
+  - name: automatic merge
+    conditions:
+      - base=main
+      - label!=manual merge
+      - check-success=semantic-pull-request
+      - or:
+          - and: *HotfixConditions
+          - and: *DefaultConditions
+          - and: *LowprioConditions
+    actions:
+      queue:
+
+  - name: feature requirements
+    conditions:
+      - or:
+          - "-title~=^feat"
+          - and:
+              - or:
+                  - label=skip release note
+                  - files~=^releasenotes/notes
+              - or:
+                  - label=skip documentation
+                  - files~=^docs/source
+              - body~=MRGFY-
+    actions:
+      post_check:
+        title: |
+          {% if check_succeed %}
+          Feature requirements are present.
+          {% else %}
+          Feature requirements are missing.
+          {% endif %}
+
+  - name: testing requirements
+    conditions:
+      - or:
+          - label=skip tests
+          - "-title~=^(feat|fix)"
+          - "files~=mergify_engine/tests"
+    actions:
+      post_check:
+        title: |
+          {% if check_succeed %}
+          Testing requirements are present.
+          {% else %}
+          Testing requirements are missing.
+          {% endif %}
+
+  - name: Label Docker changes
+    conditions:
+      - base=main
+      - or:
+          - files~=^dockerfiles/
+          - files~=^datadog/
+          - files~=^datadog-wrapper.sh$
+          - files~=^onpremise/
+          - files~=^fake.env$
+          - files~=^.github/workflows/docker-.*\.yaml
+    actions:
+      label:
+        toggle:
+          - docker
