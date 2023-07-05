@@ -1,0 +1,7 @@
+queue_rules:
+- name: default
+  queue_conditions:
+  - label=default
+- name: quwu
+  queue_conditions:
+  - label=uwu
