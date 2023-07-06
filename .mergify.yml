@@ -1,0 +1,107 @@
+
+defaults:
+  actions:
+    queue:
+      allow_merging_configuration_change: true
+      method: squash
+      commit_message_template: |
+        {{ title }} (#{{ number }})
+
+        {{ body }}
+    squash:
+      commit_message: first-commit
+      bot_account: mergify-ci-bot
+
+queue_rules:
+  - name: hotfix
+    allow_inplace_checks: true
+    queue_conditions:
+      - check-success=semantic-pull-request
+      - "check-success=Rule: testing requirements (post_check)"
+      - or:
+          # Author is engineering manager, we allow with one review
+          - and:
+              - author=@eng-mgr
+              - "#approved-reviews-by>=1"
+          - and:
+              - author=@devs
+              # in any other case, we allow if approve by engineering manager
+              # or anyone if it's a regular fix/revert
+              - or:
+                  - approved-reviews-by=@eng-mgr
+                  - and:
+                      - title~=^(revert|fix)
+                      - "#approved-reviews-by>=1"
+      - label=hotfix
+      - "#changes-requested-reviews-by=0"
+      - "#review-requested=0"
+    merge_conditions:
+      - and: &CheckRuns
+          - or:
+              - -label=docker
+              - and:
+                  - check-success=docker-saas
+                  - check-success=docker-onpremise
+          - check-success=semantic-pull-request
+          - check-success=import-checks
+          - check-success=pep8
+          - check-success=semgrep
+          - check-success=secrets-leakage
+          - check-success=test (1)
+          - check-success=test (2)
+          - check-success=test (3)
+          - check-success=test (4)
+          - check-success=test (5)
+          - check-success=docs
+    speculative_checks: 5
+
+  - name: default
+    allow_inplace_checks: true
+    queue_conditions:
+      - and: *CheckRuns
+      - "check-success=Rule: feature requirements (post_check)"
+      - "check-success=Rule: testing requirements (post_check)"
+      - "check-success=Rule: changelog requirements (post_check)"
+      - "#approved-reviews-by>=2"
+      - "#changes-requested-reviews-by=0"
+      - "#review-threads-unresolved=0"
+      - "#review-requested=0"
+    merge_conditions:
+      - and: *CheckRuns
+      - schedule=Mon-Fri 09:00-17:30[Europe/Paris]
+    speculative_checks: 5
+
+  - name: lowprio
+    allow_inplace_checks: true
+    queue_conditions:
+      - and: *CheckRuns
+      - "#commits=1"
+      - or:
+          - and:
+              - author=mergify-ci-bot
+              - head~=^clifus/
+              - "title~=^chore: bump"
+          - and:
+              - author=mergify-ci-bot
+              - head=trivy/daily-report
+              - label!=new CVE
+          - author=dependabot[bot]
+    merge_conditions:
+      - and: *CheckRuns
+      - schedule=Mon-Fri 09:00-17:00[Europe/Paris]
+    merge_method: merge
+    batch_size: 7
+    batch_max_wait_time: 5min
+    commit_message_template: null
+    queue_branch_merge_method: fast-forward
+    disallow_checks_interruption_from_queues:
+      - default
+
+pull_request_rules:
+  - name: automatic merge
+    conditions:
+      - base=main
+      - label!=manual merge
+      - check-success=semantic-pull-request
+    actions:
+      queue:
