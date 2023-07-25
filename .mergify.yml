@@ -1,0 +1,9 @@
+queue_rules:
+- name: default
+  queue_conditions:
+  - label=default
+- merge_conditions:
+  - check-success=myci
+  name: specialq
+  queue_conditions:
+  - label=specialq
