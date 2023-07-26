@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - label=queue
+  name: default merge
+queue_rules:
+- merge_conditions:
+  - or:
+    - status-success=continuous-integration/fake-ci
+    - label=merge
+  name: default
