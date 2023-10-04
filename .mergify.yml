@@ -1,0 +1,36 @@
+
+shared:
+  merge_ci: &common_checks
+    - "check-success=ci/circleci: check_if_tests_done"
+    - "#approved-reviews-by>=1"
+
+queue_rules:
+  - name: master_queue
+    conditions: *common_checks
+    checks_timeout: 25m
+
+
+pull_request_rules:
+
+  - name: delete head branch after merge
+    conditions:
+      - merged
+    actions:
+      delete_head_branch:
+
+  - name: ask to resolve conflict
+    conditions:
+      - conflict
+    actions:
+        comment:
+          message: This pull request has conflicts. Could you fix it @{{author}}?
+
+  - name: master
+    conditions:
+      - base=master
+      - label=to-be-merged
+      - and: *common_checks
+    actions:
+      queue:
+        name: master_queue
+        method: squash
