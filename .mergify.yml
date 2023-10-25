@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: no wip allowed
+  conditions:
+  - commits[*].commit_message~=wip
+  name: no-wip
