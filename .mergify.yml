@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20231031081300/test_queue_with_default_config_branch_protection_only/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- conditions: []
+  name: default
