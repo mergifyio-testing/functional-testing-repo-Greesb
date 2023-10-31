@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20231031162153/test_unfreeze_outside_schedule/main
+  - label=queue
+  name: queue
+queue_rules:
+- conditions:
+  - 'schedule: MON-FRI 08:00-17:00'
+  name: default
