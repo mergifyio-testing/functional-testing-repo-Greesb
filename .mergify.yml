@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    request_reviews:
+      teams: '@atchoum'
+  conditions:
+  - base=20231107101545/test_pull_request_with_invalid_team_name_in_new_configuration/main
+  name: foobar
