@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20231109181017/TQAWPEItest_queue_with_ci_in_pull_request_rules/main
+  - label=queue
+  - status-success=continuous-integration/fake-ci
+  name: merge default
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 5
