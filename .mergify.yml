@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: Queue
+queue_rules:
+- name: hotfix
+  queue_conditions:
+  - label=hotfix
+- name: default
+  queue_conditions:
+  - check-success=check
