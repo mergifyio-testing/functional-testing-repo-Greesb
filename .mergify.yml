@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      require_branch_protection: false
+  conditions:
+  - base=20231121135607/TQAWPEItest_queue_without_branch_protection_for_queueing_conf_in_queue_rules/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- conditions: []
+  merge_method: squash
+  name: default
