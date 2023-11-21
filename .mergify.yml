@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20231121125112/TQAWPEItest_queue_conditions_empty/main
+  - label=queue
+  name: Queue
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_conditions: []
