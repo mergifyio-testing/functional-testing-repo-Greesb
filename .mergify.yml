@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: Queue
+queue_rules:
+- name: pending-check-success
+  queue_conditions:
+  - check-success=some-pending-check-in-ci
+- name: default
+  queue_conditions:
+  - label=will-not-be-set
