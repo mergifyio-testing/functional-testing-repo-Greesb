@@ -1,0 +1,20 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: Queue
+- actions:
+    label:
+      add:
+      - dequeued
+      remove:
+      - queue
+  conditions:
+  - queue-dequeue-reason=checks-failed
+  name: Label dequeued PR
+queue_rules:
+- allow_inplace_checks: true
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
