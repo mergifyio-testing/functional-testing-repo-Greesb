@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - workflow: multiple_workflows_success.yaml
+        - inputs:
+            some_string: 666
+          workflow: multiple_workflows_error.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
