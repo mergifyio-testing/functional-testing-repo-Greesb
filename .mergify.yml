@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: commits verified
+  conditions:
+  - '#commits-unverified=0'
+  name: commits-unverified
