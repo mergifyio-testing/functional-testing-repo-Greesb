@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: review-threads-unresolved comment
+  conditions:
+  - review-threads-unresolved="why are you still writing `foo` here ?"
+  - review-threads-unresolved="How original"
+  - review-threads-unresolved="Don't like this line too much either"
+  - '#review-threads-unresolved=3'
+  name: resolved-threads
