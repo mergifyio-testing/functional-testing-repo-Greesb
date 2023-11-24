@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20231124183914/test_unsuccessful_checks_timeout/main
+  - label=queue
+  name: merge default
+queue_rules:
+- checks_timeout: 10 m
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  - status-success=continuous-integration/fake-ci_2
+  name: default
