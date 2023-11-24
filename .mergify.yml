@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20231124182959/test_freeze_eventlogs/main
+  - label=queue
+  name: queueit
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
