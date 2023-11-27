@@ -1,0 +1,10 @@
+defaults:
+  actions:
+    comment:
+      message: Hello World!
+pull_request_rules:
+- actions:
+    comment: null
+  conditions:
+  - base=20231127192958/test_comment_none_with_default/main
+  name: comment without default message
