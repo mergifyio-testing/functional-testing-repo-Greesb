@@ -1,0 +1,19 @@
+jobs:
+  test-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test dispatched workflow inputs
+      run: echo some_string=${{ inputs.some_string }}, some_number=${{ inputs.some_number
+        }}
+name: continuous_integration
+'on':
+  pull_request:
+    branches: 20231127170937/test_gha_success/main
+  workflow_dispatch:
+    inputs:
+      some_number:
+        required: true
+        type: number
+      some_string:
+        required: true
+        type: string
