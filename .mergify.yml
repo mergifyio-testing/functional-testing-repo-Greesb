@@ -1,0 +1,18 @@
+partition_rules:
+- conditions:
+  - files~=^projA/
+  name: projA
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20231127210650/test_fastforward_merge_forbidden_with_partition_rules/main
+  - label=queue
+  name: Automatic merge
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_branch_merge_method: fast-forward
