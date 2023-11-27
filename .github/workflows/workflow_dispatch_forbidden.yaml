@@ -1,0 +1,12 @@
+jobs:
+  test-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test dispatched workflow inputs
+      run: echo fails anyway
+name: workflow_run_forbidden
+'on':
+  pull_request:
+    branches: 20231127191235/test_gha_dispatch_forbidden/main
+  workflow_dispatch:
+    inputs: {}
