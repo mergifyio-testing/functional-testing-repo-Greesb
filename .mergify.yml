@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20231127164622/test_pr_embarked_check_runs_statuses_ci_summary/main
+  - label=queue
+  name: merge default
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fail-ci
+  - status-success=continuous-integration/pending-ci
+  - status-success=continuous-integration/success-ci
+  name: default
+  speculative_checks: 5
