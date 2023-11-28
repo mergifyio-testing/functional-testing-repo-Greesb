@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: foo
+  conditions:
+  - base=20231128160407/test_get_queue_pull/main
+  - label=queue
+  name: queue
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - base=20231128160407/test_get_queue_pull/main
+  - check-success=continuous-integration/fake-ci
+  - schedule!=MON-FRI 12:00-15:00
+  name: foo
