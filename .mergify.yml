@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    request_reviews:
+      teams:
+      - BOT
+  conditions:
+  - base=20231128153314/test_pull_request_with_invalid_team_name_in_new_configuration/main
+  name: foobar
