@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    merge:
+      allow_merging_configuration_change: true
+  conditions:
+  - base=20231128154009/test_allowed_change_mergify_yml/main
+  name: nothing
