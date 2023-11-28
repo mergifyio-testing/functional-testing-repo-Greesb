@@ -1,0 +1,21 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20231128173036/test_invalid_priority_rules_config/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  priority_rules:
+  - conditions:
+    - label=hotfix
+    name: hotfix PR detected
+    priority: whatever
+  - conditions:
+    - -label=hotfix
+    name: default priority
+    priority: false text
