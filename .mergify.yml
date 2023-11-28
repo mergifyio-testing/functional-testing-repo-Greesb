@@ -4,3 +4,8 @@ pull_request_rules:
   conditions:
   - base=20231128173001/test_disallowed_change_mergify_yml/main
   name: nothing
+- actions:
+    merge: {}
+  conditions:
+  - label!=wip
+  name: foobar
