@@ -1,0 +1,15 @@
+jobs:
+  test-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test dispatched workflow inputs
+      run: echo some_boolean=${{ inputs.some_boolean }}
+name: pep8
+'on':
+  pull_request:
+    branches: 20231128084804/test_gha_success/main
+  workflow_dispatch:
+    inputs:
+      some_boolean:
+        required: true
+        type: boolean
