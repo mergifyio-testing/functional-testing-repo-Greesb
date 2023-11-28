@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20231128195656/TBAtest_backport_no_branch/main
+  - label=backport-#3.1
+  name: Merge on main
+- actions:
+    backport:
+      branches:
+      - crashme
+  conditions:
+  - base=20231128195656/TBAtest_backport_no_branch/main
+  - label=backport-#3.1
+  name: Backport
