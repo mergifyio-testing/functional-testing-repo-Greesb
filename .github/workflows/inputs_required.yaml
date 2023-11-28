@@ -1,0 +1,15 @@
+jobs:
+  test-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Workflow missing dispatch trigger
+      run: echo yolo
+name: inputs_required
+'on':
+  pull_request:
+    branches: 20231128122624/test_gha_required_inputs_not_provided/main
+  workflow_dispatch:
+    inputs:
+      some_string:
+        required: true
+        type: string
