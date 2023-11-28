@@ -1,0 +1,13 @@
+_checks_to_retry_on_failure:
+  unit-tests: 2
+pull_request_rules:
+- actions:
+    queue:
+      name: foo
+  conditions:
+  - base=20231128085237/test_rerun_on_known_flaky/main
+  name: queue
+queue_rules:
+- merge_conditions:
+  - check-success=unit-tests
+  name: foo
