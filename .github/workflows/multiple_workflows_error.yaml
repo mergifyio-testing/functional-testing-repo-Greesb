@@ -1,0 +1,15 @@
+jobs:
+  test-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test dispatched workflow inputs
+      run: echo fails anyway
+name: multiple_workflows_error
+'on':
+  pull_request:
+    branches: 20231201155849/test_gha_multiple_workflows_dispatches_containing_error/main
+  workflow_dispatch:
+    inputs:
+      some_string:
+        required: true
+        type: string
