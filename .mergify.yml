@@ -1,0 +1,35 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: urgent
+  conditions:
+  - base=20231201161743/test_create_queue_pause_no_inplace/main
+  - label=queue-urgent
+  name: Merge priority high
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20231201161743/test_create_queue_pause_no_inplace/main
+  - label=queue
+  name: Merge default
+- actions:
+    queue:
+      name: low-priority
+  conditions:
+  - base=20231201161743/test_create_queue_pause_no_inplace/main
+  - label=queue-low
+  name: Merge low
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - status-success=continuous-integration/fast-ci
+  name: urgent
+- allow_inplace_checks: false
+  merge_conditions:
+  - status-success=continuous-integration/slow-ci
+  name: default
+- allow_inplace_checks: false
+  merge_conditions:
+  - status-success=continuous-integration/slow-ci
+  name: low-priority
