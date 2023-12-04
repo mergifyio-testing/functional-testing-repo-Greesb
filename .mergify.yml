@@ -1,0 +1,7 @@
+queue_rules:
+- name: default
+  routing_conditions:
+  - label=default
+- name: specialq
+  routing_conditions:
+  - label=special
