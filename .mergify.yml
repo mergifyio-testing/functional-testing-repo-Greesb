@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    review:
+      type: APPROVE
+  conditions:
+  - base=20231205181856/test_review_template/main
+  - '#approved-reviews-by=0'
+  - '#changes-requested-reviews-by=0'
+  name: approve
+- actions:
+    review:
+      message: WTF {{author}}?
+      type: REQUEST_CHANGES
+  conditions:
+  - base=20231205181856/test_review_template/main
+  - '#approved-reviews-by>=1'
+  - '#changes-requested-reviews-by=0'
+  name: requested
