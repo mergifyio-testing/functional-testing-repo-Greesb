@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    label:
+      add:
+      - branch:{{base}}
+  conditions: []
+  name: add branch label
