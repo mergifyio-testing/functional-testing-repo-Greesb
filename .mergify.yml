@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20231207124943/test_simulator_invalid_json/main
+  name: simulator
