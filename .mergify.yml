@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    review:
+      type: APPROVE
+  conditions:
+  - base=20231211174657/test_request_reviews_already_max/main
+  - '#review-requested=0'
+  name: approve
+- actions:
+    request_reviews:
+      users:
+      - mergify-test1
+      - mergify-test4
+  conditions:
+  - base=20231211174657/test_request_reviews_already_max/main
+  name: request_reviews
