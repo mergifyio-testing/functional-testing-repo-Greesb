@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - inputs:
+            some_boolean: true
+          workflow: pep8_workflow.yaml
+        - inputs:
+            some_number: '11'
+            some_string: Hello
+          workflow: ci_workflow.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
