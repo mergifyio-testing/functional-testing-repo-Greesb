@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: Happy New Year!
+  conditions:
+  - current-datetime=2024-01-01T00:00/2024-01-01T23:59[Europe/Paris]
+  name: Comment on New Year's Day 2024
