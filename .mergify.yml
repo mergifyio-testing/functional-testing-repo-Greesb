@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    comment: null
+  conditions:
+  - base=20231212163231/test_comment_none_without_default/main
+  name: comment without default message
