@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: verified is good
+  conditions:
+  - commits[-1].commit_verification_verified
+  name: verified
+- actions:
+    comment:
+      message: verified is not good
+  conditions:
+  - -commits[-1].commit_verification_verified
+  name: not verified
