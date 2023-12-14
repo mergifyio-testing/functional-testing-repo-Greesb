@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: no non-verified commits allowed
+  conditions:
+  - -commits[*].commit_verification_verified
+  name: no non verified
+- actions:
+    comment:
+      message: verified is life
+  conditions:
+  - commits[*].commit_verification_verified
+  name: yes verified
