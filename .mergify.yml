@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    label:
+      add:
+      - unstable
+      - foobar
+      - vector
+  conditions:
+  - base=20231215094845/test_check_run_inserted_and_updated/main
+  - label!=unstable
+  name: rename label
