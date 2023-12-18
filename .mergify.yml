@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: review-thread-resolved comment showing success
+  conditions:
+  - review-threads-resolved="nothing... I guess"
+  name: resolved-threads
