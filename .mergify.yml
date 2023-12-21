@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - check-success=continuous-integration/fake-ci
+  name: Queue
+- actions:
+    label:
+      toggle:
+      - queued
+  conditions:
+  - queue-position>0
+  name: Queued
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
