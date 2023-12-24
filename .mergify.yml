@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - label=queue
+  name: Merge me
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
