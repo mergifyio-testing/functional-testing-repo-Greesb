@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    request_reviews:
+      users:
+      - mergify-test4
+  conditions:
+  - base=20231227163646/test_request_reviews_already_max/main
+  name: request_reviews
