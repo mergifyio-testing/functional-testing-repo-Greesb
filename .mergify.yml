@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    dismiss_reviews: {}
+  conditions:
+  - base=20231227153703/test_dismiss_reviews_timing_race/main
+  name: dismiss reviews
