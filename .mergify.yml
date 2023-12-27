@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    assign:
+      remove_users:
+      - '{{ assignee[0] }}'
+  conditions:
+  - base=20231227152715/test_unassign_valid_template/main
+  name: assign
