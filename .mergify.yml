@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    assign:
+      users:
+      - mergify-test1
+    label:
+      add:
+      - toto
+  conditions:
+  - base=20231227164208/test_eventlogs_db/main
+  name: assign
