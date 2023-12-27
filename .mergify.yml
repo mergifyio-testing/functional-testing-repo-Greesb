@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: 'Number of files changed: {{ files | length }}
+
+        Number of commits: {{ commits | length }}
+
+        Number of commits behind main: {{ commits_behind | length }}'
+  conditions:
+  - base=20231227150227/test_length_attribute_template/main
+  name: comment
