@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - inputs: {}
+          workflow: inputs_required.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
