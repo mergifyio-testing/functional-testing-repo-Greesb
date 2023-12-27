@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20231227154057/test_merge_branch_protection_linear_history_without_merge_method/main
+  name: merge
