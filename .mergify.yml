@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - inputs:
+            author: '{{author}}'
+          workflow: dynamic_workflow.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
