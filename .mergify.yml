@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    post_check: {}
+  conditions:
+  - check-failure=sick-ci
+  name: check-run-failure-state
