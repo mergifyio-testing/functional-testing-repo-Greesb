@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    post_check:
+      neutral_conditions:
+      - label=be neutral
+  conditions:
+  - base=20231228163241/test_checks_with_neutral_conditions/main
+  name: be neutral
