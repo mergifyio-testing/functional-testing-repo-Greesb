@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: not <h1>exists</h1> !!
+  conditions:
+  - base=20231228132852/test_invalid_config_html_escape/main
+  - label=<h1>foo</h1>bar
+  name: no <i>manual</i> merge
+queue_rules:
+- name: no <i>manual</i> merge
