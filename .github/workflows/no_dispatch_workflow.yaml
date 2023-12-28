@@ -1,0 +1,10 @@
+jobs:
+  test-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Workflow missing dispatch trigger
+      run: echo yolo
+name: no_dispatch
+'on':
+  pull_request:
+    branches: 20231228161242/test_gha_workflow_no_dispatch/main
