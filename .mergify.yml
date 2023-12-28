@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20231228161612/test_merge_conflicting_pr/main
+  - label=merge
+  name: merge
