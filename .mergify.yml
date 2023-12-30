@@ -1,0 +1,7 @@
+queue_rules:
+- name: default
+  queue_conditions:
+  - label=default
+- name: specialq
+  queue_conditions:
+  - label=specialq
