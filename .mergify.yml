@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    review:
+      message: Thank you {{
+      type: REQUEST_CHANGES
+  conditions:
+  - base=20231230112447/test_review_template_syntax_error/main
+  - '#changes-requested-reviews-by=0'
+  name: review
