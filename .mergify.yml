@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    review:
+      message: Thank you {{hello}}
+      type: REQUEST_CHANGES
+  conditions:
+  - base=20240101105909/test_review_template_attribute_error/main
+  - '#changes-requested-reviews-by=0'
+  name: review
