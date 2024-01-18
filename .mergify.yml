@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240118082149/test_cerebras_bug/main
+  - check-success=continuous-integration/fake-ci
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 3
+  merge_conditions:
+  - check-success=continuous-integration/fake-ci
+  name: default
