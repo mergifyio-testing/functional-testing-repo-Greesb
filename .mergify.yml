@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      update_bot_account: mergify-test4
+      update_method: rebase
+  conditions:
+  - base=20240118165716/test_queue_fast_forward_with_required_pull_request_branch_protection/main
+  - label=queue
+  name: merge fast-forward
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_branch_merge_method: fast-forward
