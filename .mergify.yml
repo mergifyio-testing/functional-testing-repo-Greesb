@@ -1,0 +1,10 @@
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 3
+  merge_conditions:
+  - check-success=continuous-integration/fake-ci
+  name: default
+  queue_conditions:
+  - base=20240118081950/test_cerebras_bug/main
+  - check-success=continuous-integration/fake-ci
+  - label=queue
