@@ -1,0 +1,8 @@
+queue_rules:
+- merge_conditions:
+  - check-success=continuous-integration/fake-ci
+  - approved-reviews-by=mergify-test4
+  - '#approved-reviews-by>=1'
+  merge_method: squash
+  name: main
+  update_method: merge
