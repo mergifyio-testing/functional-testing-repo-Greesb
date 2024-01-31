@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: head-repo-full-name={{ head_repo_full_name }}
+  conditions:
+  - head-repo-full-name=mergifyio-testing/functional-testing-repo-Greesb
+  name: test-on-origin
+- actions:
+    comment:
+      message: head-repo-full-name={{ head_repo_full_name }}
+  conditions:
+  - head-repo-full-name=mergify-test2/functional-testing-repo-Greesb
+  name: test-on-fork
