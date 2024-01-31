@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: CONFLICT!
+    label:
+      toggle:
+      - conflict
+  conditions:
+  - conflict
+  - -closed
+  name: comment
