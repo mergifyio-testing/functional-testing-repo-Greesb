@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: WTF?
+  conditions:
+  - base=20240305111855/test_debugger_with_missing_branch_protection_rule_fields/main
+  - or:
+    - label=doubt
+    - label=suspect
+  - and:
+    - number>0
+    - title~=pull request
+  name: comment
