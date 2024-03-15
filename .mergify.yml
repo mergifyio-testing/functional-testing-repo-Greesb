@@ -1,0 +1,22 @@
+partition_rules:
+- fallback_partition: true
+  name: fallback_partition
+- conditions:
+  - files~=^projA/
+  name: projA
+- conditions:
+  - files~=^projB/
+  name: projB
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315183001/test_no_partition_reset_after_queued_merged_pr_with_partition_and_fallback_partition/main
+  - label=queue
+  name: Automatic merge
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
