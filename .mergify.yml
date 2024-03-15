@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      update_bot_account: '{% if 1 -%}mergify-test4{% endif -%}'
+      update_method: rebase
+  conditions:
+  - base=20240315181252/test_queue_with_rebase_update_method/main
+  - label=queue
+  name: default merge
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
