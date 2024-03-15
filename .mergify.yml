@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315181424/test_unqueue_conditions_failed/main
+  name: default merge
+queue_rules:
+- allow_inplace_checks: true
+  batch_max_wait_time: 0 s
+  batch_size: 3
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  - label=queue
+  name: default
+  speculative_checks: 1
