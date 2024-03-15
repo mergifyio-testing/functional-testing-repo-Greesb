@@ -1,0 +1,23 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20240315154404/TBAtest_backport_skips_commit_when_change_already_in_destination_branch/stable/#3.1
+  - label=merge stable branch
+  name: Merge on stable branch
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20240315154404/TBAtest_backport_skips_commit_when_change_already_in_destination_branch/main
+  - label=backport-#3.1
+  name: Merge on main
+- actions:
+    backport:
+      branches:
+      - 20240315154404/TBAtest_backport_skips_commit_when_change_already_in_destination_branch/stable/#3.1
+  conditions:
+  - base=20240315154404/TBAtest_backport_skips_commit_when_change_already_in_destination_branch/main
+  - label=backport-#3.1
+  name: Backport to stable/#3.1
