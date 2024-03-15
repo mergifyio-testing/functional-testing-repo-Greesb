@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20240315154817/TBAtest_backport_with_title_and_body/main
+  - label=backport-#3.1
+  name: Merge on main
+- actions:
+    backport:
+      body: 'foo: {{destination_branch}}'
+      branches:
+      - 20240315154817/TBAtest_backport_with_title_and_body/stable/#3.1
+      title: 'foo: {{destination_branch}}'
+  conditions:
+  - base=20240315154817/TBAtest_backport_with_title_and_body/main
+  - label=backport-#3.1
+  name: Backport to stable/#3.1
