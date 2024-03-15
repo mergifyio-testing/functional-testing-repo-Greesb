@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315172542/test_queue_checks_end_emission/main
+  - label=queue
+  name: queue_to_default
+queue_rules:
+- merge_conditions:
+  - check-success=pending_check
+  name: default
