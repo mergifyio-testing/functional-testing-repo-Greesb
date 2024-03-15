@@ -1,0 +1,20 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315155827/test_conflicts_with_pull_ahead/main
+  - label=queue
+  name: Queue on label
+- actions:
+    label:
+      add:
+      - queue-conflict
+  conditions:
+  - queue-dequeue-reason=conflict-with-pull-ahead
+  name: Label queue conflicts
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 2
+  conditions: []
+  name: default
