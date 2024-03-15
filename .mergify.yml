@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20240315155133/TBAWStest_backport_with_bot_account/main
+  - label=backport-#3.1
+  name: Merge on main
+- actions:
+    backport:
+      bot_account: mergify-test4
+      branches:
+      - 20240315155133/TBAWStest_backport_with_bot_account/stable/#3.1
+  conditions:
+  - base=20240315155133/TBAWStest_backport_with_bot_account/main
+  - label=backport-#3.1
+  name: Backport to stable/#3.1
