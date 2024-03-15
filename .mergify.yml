@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    dismiss_reviews:
+      approved: true
+      changes_requested:
+      - mergify-test1
+      message: Loser
+  conditions:
+  - base=20240315155146/test_dismiss_reviews_custom_message/main
+  name: dismiss reviews
