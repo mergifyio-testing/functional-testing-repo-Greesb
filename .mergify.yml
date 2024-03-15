@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20240315154404/TBAtest_backport_merge_commit_regexes/main
+  - label=backport-#3.1
+  name: Merge on main
+- actions:
+    backport:
+      assignees:
+      - mergify-test4
+      regexes:
+      - ^20240315154404/TBAtest_backport_merge_commit_regexes/stable/.*$
+  conditions:
+  - base=20240315154404/TBAtest_backport_merge_commit_regexes/main
+  - label=backport-#3.1
+  name: Backport to stable/#3.1
