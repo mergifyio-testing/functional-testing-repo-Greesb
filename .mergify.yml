@@ -1,0 +1,21 @@
+partition_rules:
+- conditions:
+  - files~=^projA/
+  name: projectA
+- conditions:
+  - files~=^projB/
+  name: projectB
+pull_request_rules:
+- actions:
+    queue:
+      name: foo
+  conditions:
+  - base=20240315205411/test_partitions_endpoints_with_partition_rules/main
+  - label=queue
+  name: queue
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - base=20240315205411/test_partitions_endpoints_with_partition_rules/main
+  - check-success=continuous-integration/fake-ci
+  name: foo
