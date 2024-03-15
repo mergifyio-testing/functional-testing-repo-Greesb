@@ -1,11 +1,12 @@
 pull_request_rules:
 - actions:
     queue:
-      name: default
+      name: new_default
   conditions:
+  - base=20240315181311/test_unexpected_config_change/main
   - label=queue
   name: Merge me
 queue_rules:
 - conditions:
   - status-success=continuous-integration/fake-ci
-  name: default
+  name: new_default
