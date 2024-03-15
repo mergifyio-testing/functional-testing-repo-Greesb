@@ -1,0 +1,22 @@
+
+shared:
+  merge_ci: &common_checks
+    - "check-success=ci/circleci: check_if_tests_done"
+    - "#approved-reviews-by>=1"
+
+queue_rules:
+  - name: master_queue
+    conditions: *common_checks
+    checks_timeout: 25m
+
+
+pull_request_rules:
+  - name: master
+    conditions:
+      - base=20240315174636/test_queue_inplace_with_outdated_pull_request_from_github/main
+      - label=to-be-merged
+      - and: *common_checks
+    actions:
+      queue:
+        name: master_queue
+        method: squash
