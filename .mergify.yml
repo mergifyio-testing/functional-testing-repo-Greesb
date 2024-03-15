@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315214021/test_estimated_time_of_merge_with_1_speculative_check_and_multiple_batch/main
+  - label=queuedefault
+  name: queuedefault
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 3
+  merge_conditions:
+  - base=20240315214021/test_estimated_time_of_merge_with_1_speculative_check_and_multiple_batch/main
+  - check-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 1
