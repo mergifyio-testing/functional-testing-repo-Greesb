@@ -1,0 +1,27 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315174846/test_queue_priority_rules/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- batch_size: 2
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  priority_rules:
+  - conditions:
+    - label=hotfix
+    name: hotfix PR detected
+    priority: high
+  - conditions:
+    - -label=hotfix
+    - -label=low
+    name: default priority
+    priority: medium
+  - conditions:
+    - label=low
+    name: low priority
+    priority: low
