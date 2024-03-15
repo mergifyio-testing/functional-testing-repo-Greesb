@@ -1,0 +1,30 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315205239/test_estimated_time_of_merge_without_partitions_and_pr_in_multiple_queues/main
+  - label=queuedefault
+  name: queuedefault
+- actions:
+    queue:
+      name: lowprio
+  conditions:
+  - base=20240315205239/test_estimated_time_of_merge_without_partitions_and_pr_in_multiple_queues/main
+  - label=queuelowprio
+  name: queuelowprio
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 2
+  merge_conditions:
+  - base=20240315205239/test_estimated_time_of_merge_without_partitions_and_pr_in_multiple_queues/main
+  - check-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 1
+- allow_inplace_checks: false
+  batch_size: 3
+  merge_conditions:
+  - base=20240315205239/test_estimated_time_of_merge_without_partitions_and_pr_in_multiple_queues/main
+  - check-success=continuous-integration/fake-ci
+  name: lowprio
+  speculative_checks: 1
