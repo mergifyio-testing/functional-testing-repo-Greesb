@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    post_check: {}
+    queue:
+      name: default
+  conditions:
+  - base=20240315160416/test_check_runs_filtering/main
+  name: Queue and post check
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
