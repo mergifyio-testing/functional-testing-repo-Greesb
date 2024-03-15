@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20240315154404/TBAtest_backport_with_labels/main
+  - label=backport-#3.1
+  name: Merge on main
+- actions:
+    backport:
+      branches:
+      - 20240315154404/TBAtest_backport_with_labels/stable/#3.1
+      labels:
+      - backported
+  conditions:
+  - base=20240315154404/TBAtest_backport_with_labels/main
+  - label=backport-#3.1
+  name: Backport to stable/#3.1
