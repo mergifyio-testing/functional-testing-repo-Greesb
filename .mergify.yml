@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    update: {}
+  conditions:
+  - base=20240315211850/test_update_action_without_bot/main
+  name: update
+- actions:
+    merge: {}
+  conditions:
+  - base=20240315211850/test_update_action_without_bot/main
+  - label=merge
+  name: merge
