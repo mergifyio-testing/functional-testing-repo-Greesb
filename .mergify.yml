@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315161925/test_pr_requeue_after_pr_unexpected_updated_changes/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: true
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
