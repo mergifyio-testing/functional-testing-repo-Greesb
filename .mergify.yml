@@ -1,0 +1,34 @@
+partition_rules:
+- conditions:
+  - files~=^projA/
+  name: projA
+- conditions:
+  - files~=^projB/
+  name: projB
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20240315183823/test_pr_matches_only_one_partition_with_several_partitions_and_queues/main
+  - label=queue
+  name: Automatic merge
+queue_rules:
+- allow_inplace_checks: true
+  merge_conditions:
+  - status-success=continuous-integration/fake-global-ci
+  name: urgent
+  queue_conditions:
+  - label=urgent-projA
+  - partition-name=projA
+  - status-success=continuous-integration/fake-ci-A
+- allow_inplace_checks: true
+  merge_conditions:
+  - status-success=continuous-integration/fake-global-ci
+  name: default
+  queue_conditions:
+  - or:
+    - partition-name!=projA
+    - status-success=continuous-integration/fake-ci-A
+  - or:
+    - partition-name!=projB
+    - status-success=continuous-integration/fake-ci-B
