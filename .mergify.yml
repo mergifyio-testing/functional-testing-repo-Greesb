@@ -1,0 +1,22 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315180816/test_queue_with_rebase_on_githubapp_pr_conf_in_queue_rules/main
+  - label=queue
+  name: default merge
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  update_bot_account: '{% if not author or author.endswith("[bot]") -%}
+
+    mergify-test4
+
+    {% else -%}
+
+    {{ author }}
+
+    {% endif -%}'
+  update_method: rebase
