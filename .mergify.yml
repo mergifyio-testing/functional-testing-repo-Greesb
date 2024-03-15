@@ -1,0 +1,8 @@
+pull_request_rules:
+- actions:
+    request_reviews:
+      users:
+      - octocat
+  conditions:
+  - base=20240315204818/test_request_reviews_unknown_reviewer/main
+  name: request_reviews
