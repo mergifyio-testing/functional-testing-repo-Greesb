@@ -1,0 +1,19 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - base=20240315171455/test_merge_queue_conflict/main
+  - label=merge
+  name: Merge
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240315171455/test_merge_queue_conflict/main
+  - label=queue
+  name: Queue
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
