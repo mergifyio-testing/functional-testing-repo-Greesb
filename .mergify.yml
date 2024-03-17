@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    merge: {}
+  conditions:
+  - mergify-configuration-changed
+  name: merge
