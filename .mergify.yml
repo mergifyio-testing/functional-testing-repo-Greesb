@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240317215828/test_dequeue_no_partitions/main
+  name: Queue
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
