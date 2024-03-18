@@ -1,0 +1,9 @@
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: hotfix
+  queue_conditions:
+  - label=hotfix
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
