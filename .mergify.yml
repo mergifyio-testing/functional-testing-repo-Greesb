@@ -1,7 +1,7 @@
 pull_request_rules:
 - actions:
     queue:
-      merge_bot_account: mergify-test4
+      merge_bot_account: mergify-test1
       name: default
   conditions:
   - base=20240318100625/test_report_queue_merge_without_admin_bot_account_and_branch_protections_bypassing/main
