@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318100828/test_batch_max_wait_time_after_pr_conflicts/main
+  - label=queue
+  name: Queue on label
+queue_rules:
+- allow_inplace_checks: true
+  batch_max_wait_time: 5 m
+  batch_size: 2
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
