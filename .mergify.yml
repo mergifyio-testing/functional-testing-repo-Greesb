@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions: {}
+  conditions: []
+  name: noop
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - base=20240318083049/test_pull_request_init_summary/main
+  - check-success=continuous-integration/fake-ci
+  name: default
