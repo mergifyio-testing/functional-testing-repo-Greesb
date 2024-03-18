@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - label=queue
+  name: default merge
+queue_rules:
+- name: default
+  queue_conditions:
+  - base=20240318163514/test_merging_a_stack/main
