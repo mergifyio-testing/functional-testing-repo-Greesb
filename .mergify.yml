@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318102017/test_error_bypass_branch_protections_with_none_injection_mode_without_bot_account/main
+  - label=queue
+  name: Merge default
+queue_rules:
+- branch_protection_injection_mode: none
+  merge_conditions: []
+  name: default
