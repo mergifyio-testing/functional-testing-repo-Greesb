@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318122806/test_queue_action_and_command_without_merge_queue_feature_flag/main
+  - label=queue
+  name: Merge on queue label
+queue_rules:
+- conditions: []
+  name: default
