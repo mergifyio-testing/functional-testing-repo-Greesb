@@ -1,0 +1,12 @@
+jobs:
+  unit-tests:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Say hi we count run_attempt here
+      run: echo I will fail on sha ${{ github.event.pull_request.head.sha }} run_attempt:${{
+        github.run_attempt }};exit 1
+    timeout-minutes: 5
+name: Continuous Integration
+'on':
+  pull_request:
+    branches: 20240318140415/test_log_downloading/main
