@@ -1,0 +1,6 @@
+pull_request_rules:
+- actions:
+    squash: {}
+  conditions:
+  - base=20240318133408/test_squash_several_commits_ok/main
+  name: assign
