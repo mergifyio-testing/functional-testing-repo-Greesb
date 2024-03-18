@@ -1,0 +1,32 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default with inplace
+      update_bot_account: mergify-test4
+      update_method: rebase
+  conditions:
+  - base=20240318110202/test_queue_with_branch_protection_on_pull_head_or_draft_head/main
+  - label=queue-rebase
+  name: queue inplace rebase
+- actions:
+    queue:
+      name: default with inplace
+  conditions:
+  - base=20240318110202/test_queue_with_branch_protection_on_pull_head_or_draft_head/main
+  - label=queue-merge
+  name: queue inplace merge
+- actions:
+    queue:
+      name: default no inplace
+  conditions:
+  - base=20240318110202/test_queue_with_branch_protection_on_pull_head_or_draft_head/main
+  - label=queue-draft
+  name: queue draft pr
+queue_rules:
+- conditions:
+  - base=20240318110202/test_queue_with_branch_protection_on_pull_head_or_draft_head/main
+  name: default with inplace
+- allow_inplace_checks: false
+  conditions:
+  - base=20240318110202/test_queue_with_branch_protection_on_pull_head_or_draft_head/main
+  name: default no inplace
