@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318115638/test_queue_with_allow_queue_branch_edit_set_to_false/main
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: false
+  allow_queue_branch_edit: false
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
