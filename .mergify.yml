@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    rebase:
+      bot_account: mergify-test4
+  conditions:
+  - base=20240318132508/test_rebase_action_on_conflict/main
+  name: rebase
+- actions:
+    merge: {}
+  conditions:
+  - base=20240318132508/test_rebase_action_on_conflict/main
+  - label=merge
+  name: merge
