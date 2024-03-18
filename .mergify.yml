@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      update_method: rebase
+  conditions:
+  - base=20240318150928/test_strict_status_check_with_rebase_update_method_and_no_bot_account/main
+  - label=queue
+  name: Queue on label
+queue_rules:
+- merge_conditions: []
+  name: default
