@@ -1,0 +1,32 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: urgent
+  conditions:
+  - base=20240318134111/test_queue_pause_create_and_delete_resume_merge/main
+  - label=queue-urgent
+  name: Merge priority high
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318134111/test_queue_pause_create_and_delete_resume_merge/main
+  - label=queue
+  name: Merge default
+- actions:
+    queue:
+      name: low-priority
+  conditions:
+  - base=20240318134111/test_queue_pause_create_and_delete_resume_merge/main
+  - label=queue-low
+  name: Merge low
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fast-ci
+  name: urgent
+- merge_conditions:
+  - status-success=continuous-integration/slow-ci
+  name: default
+- merge_conditions:
+  - status-success=continuous-integration/slow-ci
+  name: low-priority
