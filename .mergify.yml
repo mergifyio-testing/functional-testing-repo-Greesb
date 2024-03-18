@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      update_method: rebase
+  conditions:
+  - base=20240318115413/test_queue_update_inplace_merge_report/main
+  - status-success=continuous-integration/fake-ci
+  name: default merge
+queue_rules:
+- conditions:
+  - status-success=another-ci
+  name: default
