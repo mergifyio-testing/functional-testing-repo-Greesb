@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    review:
+      type: APPROVE
+  conditions:
+  - base=20240318133356/test_review_with_oauth_token/main
+  - '#approved-reviews-by=0'
+  - '#changes-requested-reviews-by=0'
+  name: approve
+- actions:
+    review:
+      bot_account: mergify-test4
+      message: WTF?
+      type: REQUEST_CHANGES
+  conditions:
+  - base=20240318133356/test_review_with_oauth_token/main
+  - '#changes-requested-reviews-by=0'
+  name: requested
