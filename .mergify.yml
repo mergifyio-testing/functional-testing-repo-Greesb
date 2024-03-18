@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318105346/test_queue_inplace_train_resetted/main
+  - check-success=continuous-integration/fake-ci
+  name: Merge priority high
+queue_rules:
+- conditions:
+  - check-success=continuous-integration/fake-ci
+  name: default
