@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    squash:
+      bot_account: MERGIFY-TEST1
+  conditions:
+  - base=20240318133505/test_squash_bot_account/main
+  name: assign
