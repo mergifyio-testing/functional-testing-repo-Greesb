@@ -1,0 +1,19 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318100823/test_base_branch_conflicts_check_run_message_draft/main
+  - label=queue
+  name: Queue on label
+- actions:
+    label:
+      add:
+      - queue-conflict
+  conditions:
+  - queue-dequeue-reason=conflict-with-base-branch
+  name: Label queue conflicts
+queue_rules:
+- allow_inplace_checks: false
+  conditions: []
+  name: default
