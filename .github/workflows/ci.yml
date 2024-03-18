@@ -1,0 +1,17 @@
+jobs:
+  unit-tests:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: the matrix
+      run: 'echo I will fail on sha ${{ github.event.pull_request.head.sha }} version:
+        ${{ matrix.version }};exit 1'
+    strategy:
+      matrix:
+        version:
+        - 2.8
+        - 3.5
+    timeout-minutes: 5
+name: Continuous Integration
+'on':
+  pull_request:
+    branches: 20240318135545/test_log_downloading_with_matrix/main
