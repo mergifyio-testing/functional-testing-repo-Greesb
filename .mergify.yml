@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      merge_bot_account: mergify-test4
+      name: default
+  conditions:
+  - base=20240318100625/test_report_queue_merge_without_admin_bot_account_and_branch_protections_bypassing/main
+  - label=queue
+  name: Merge default
+queue_rules:
+- branch_protection_injection_mode: none
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci-merge
+  name: default
+  queue_conditions:
+  - status-success=continuous-integration/fake-ci-queue
