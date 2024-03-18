@@ -1,0 +1,20 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318120320/test_queue_with_two_pull_request_rules_that_match_then_unmatch/main
+  - label=high
+  name: merge high
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318120320/test_queue_with_two_pull_request_rules_that_match_then_unmatch/main
+  - label=low
+  name: merge low
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
