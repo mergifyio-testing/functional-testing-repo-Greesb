@@ -1,0 +1,38 @@
+jobs:
+  unit-tests:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Say hi we count run_attempt here
+      run: echo Hi
+    - name: 'Run # nosemgrep generic.ci.security.use-frozen-lockfile.use-frozen-lockfile-pip.txt'
+      run: echo toto
+    - name: "Failure step with *\"/\\<>:|? in the title \u274C"
+      run: echo Hi
+    - name: "Failure step with a long utf8 char \U0001242B and too many chars to fit\
+        \ in a GitHub zip filename \u274C"
+      run: echo Hi
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: "Success step \U0001F389"
+      run: echo toto
+    - name: 'Run # nosemgrep generic.ci.security.use-frozen-lockfile.use-frozen-lockfile-pip.txt'
+      run: echo toto
+    timeout-minutes: 5
+name: Continuous Integration
+'on':
+  pull_request:
+    branches: 20240318135345/test_log_step_name_to_zip_filenames/main
