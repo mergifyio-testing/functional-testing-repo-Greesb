@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318121127/test_train_car_state_time_spent_outside_schedule/main
+  - label=queue
+  name: queue
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - schedule=09:00-18:00
+  - check-success=continuous-integration/fake-ci
+  name: default
