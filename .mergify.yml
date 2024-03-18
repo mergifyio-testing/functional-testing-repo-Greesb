@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318141815/test_queue_with_queue_branch_prefix/main
+  - label=queue
+  name: default merge
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_branch_prefix: mq-
+  speculative_checks: 5
