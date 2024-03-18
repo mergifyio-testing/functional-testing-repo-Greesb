@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318103234/test_queue_already_ready/main
+  - label=queue
+  name: merge default
+queue_rules:
+- conditions:
+  - label=queue
+  name: default
