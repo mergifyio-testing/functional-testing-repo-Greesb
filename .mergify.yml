@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240318103456/test_more_ci_in_pull_request_rules_failure/main
+  - status-success=continuous-integration/fake-ci
+  - status-success=very-long-ci
+  - label=queue
+  name: merge default
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
