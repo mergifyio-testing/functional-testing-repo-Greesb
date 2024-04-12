@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    label:
+      toggle:
+      - conflict
+  conditions:
+  - base=20240412085804/test_push_event_processing/main
+  - conflict
+  name: conflict labeler
