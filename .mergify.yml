@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      merge_method: merge
+      name: default
+      update_method: rebase
+  conditions:
+  - base=20240624164040/test_draft_pr_with_branch_protection_on_everything/main
+  - label=ready-to-merge
+  name: Queue on label
+queue_rules:
+- merge_conditions:
+  - '#review-requested=0'
+  - '#changes-requested-reviews-by=0'
+  - label=ready-to-merge
+  name: default
