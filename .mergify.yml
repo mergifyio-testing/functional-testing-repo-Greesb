@@ -1,0 +1,21 @@
+pull_request_rules:
+- actions:
+    merge:
+      commit_message_template: '{{ title }}
+
+
+        {{ body | get_section("## Description", "") }}
+
+
+        Pull request: #{{ number }}
+
+        {% for co_author in co_authors %}
+
+        Co-Authored-By: {{ co_author.name }} <{{ co_author.email }}>
+
+        {% endfor %}
+
+        '
+  conditions:
+  - base=20240708150116/test_merge_template_with_co_authors/main
+  name: merge on main
