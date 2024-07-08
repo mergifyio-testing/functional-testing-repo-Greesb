@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      merge_bot_account: mergify-test2
+      name: default
+  conditions:
+  - base=20240708150433/test_report_error_bot_account_wrong_permissions/main
+  - label=queue
+  name: Merge default
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci-merge
+  name: default
+  queue_conditions:
+  - status-success=continuous-integration/fake-ci-queue
