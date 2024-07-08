@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20240708153911/test_checks_inject_queue_conditions_in_merge_conditions/main
+  name: Queue
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci-merge
+  name: default
+  queue_conditions:
+  - status-success=continuous-integration/fake-ci-queue
