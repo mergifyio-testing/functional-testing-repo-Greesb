@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240708150554/test_batch_cant_create_tmp_pull_request/main
+  - label=queue
+  name: merge default
+queue_rules:
+- allow_inplace_checks: true
+  batch_size: 2
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  speculative_checks: 1
