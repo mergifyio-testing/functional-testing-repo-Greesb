@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20240708153739/test_merge_condition_out_of_daterange/main
+  name: automatic merge
+queue_rules:
+- merge_conditions:
+  - current-datetime != XXXX-01-01T00:00/XXXX-01-01T23:59[Europe/Paris]
+  name: default
+  queue_conditions:
+  - label=queue
