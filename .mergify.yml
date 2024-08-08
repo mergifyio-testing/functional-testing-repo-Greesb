@@ -1,0 +1,7 @@
+pull_request_rules:
+- actions:
+    comment:
+      message: WTF? @{{ assignee | join(', @') }}
+  conditions:
+  - base=20240808090000/test_comment/main
+  name: comment
