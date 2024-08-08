@@ -1,0 +1,20 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20240808091607/test_queue_dequeue_reason_triggers_wa/main
+  - label=queue
+  name: Queue on label
+- actions:
+    comment:
+      message: hey bozo it failed
+  conditions:
+  - queue-dequeue-reason != none
+  - queue-dequeue-reason != pr-merged
+  name: notify on failure
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - check-success=continus-integration/fake-ci
+  name: default
