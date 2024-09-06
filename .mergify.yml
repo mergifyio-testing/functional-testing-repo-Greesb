@@ -1,3 +1,6 @@
 pull_request_rules:
-- name: foobar
-  wrong key: 123
+- actions:
+    merge: {}
+  conditions:
+  - label!=wip
+  name: foobar
