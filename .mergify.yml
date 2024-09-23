@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - ref: 20240923082329/test_gha_multiple_workflows_dispatches_containing_error/main
+          workflow: multiple_workflows_success.yaml
+        - inputs:
+            some_string: 666
+          ref: 20240923082329/test_gha_multiple_workflows_dispatches_containing_error/main
+          workflow: multiple_workflows_error.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
