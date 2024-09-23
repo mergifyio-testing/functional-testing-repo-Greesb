@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - ref: branch-does-not-exist
+          workflow: workflow_with_ref.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
