@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - ref: 20241015081903/test_gha_unknown_workflow/main
+          workflow: unknown.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch unknown workflow
