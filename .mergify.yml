@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - inputs:
+            author: '{{author}}'
+          ref: 20241015082143/test_gha_with_template_input/main
+          workflow: dynamic_workflow.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
