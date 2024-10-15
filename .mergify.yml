@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - inputs:
+            some_boolean: true
+          ref: 20241015081943/test_gha_success/main
+          workflow: pep8_workflow.yaml
+        - inputs:
+            some_number: '11'
+            some_string: Hello
+          ref: 20241015081943/test_gha_success/main
+          workflow: ci_workflow.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
