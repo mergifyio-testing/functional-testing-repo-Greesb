@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - ref: 20241015082026/test_gha_workflow_no_dispatch/main
+          workflow: no_dispatch_workflow.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
