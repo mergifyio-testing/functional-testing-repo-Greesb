@@ -1,0 +1,10 @@
+jobs:
+  test-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello world
+      run: echo hello world
+name: workflow_with_ref
+'on':
+  pull_request:
+    branches: 20241015081908/test_gha_specified_ref/main
