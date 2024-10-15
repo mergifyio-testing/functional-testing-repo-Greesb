@@ -1,0 +1,12 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: automatic merge
+queue_rules:
+- batch_size: 2
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_branch_merge_method: fast-forward
