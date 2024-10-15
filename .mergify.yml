@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - inputs: {}
+          ref: 20241015081949/test_gha_required_inputs_not_provided/main
+          workflow: inputs_required.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
