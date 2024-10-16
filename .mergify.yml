@@ -4,6 +4,13 @@ pull_request_rules:
   conditions:
   - label=queue
   name: foobar
+- actions:
+    label:
+      toggle:
+      - queued
+  conditions:
+  - queue-position>=0
+  name: label on queued
 queue_rules:
 - merge_conditions:
   - status-success=continuous-integration/fake-ci
