@@ -1,0 +1,12 @@
+priority_rules:
+- conditions:
+  - label=hotfix
+  name: high prio
+  priority: high
+queue_rules:
+- merge_conditions:
+  - label=mergeme
+  name: default
+  queue_conditions:
+  - label=queue
+  update_method: rebase
