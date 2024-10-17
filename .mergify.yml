@@ -1,0 +1,18 @@
+priority_rules:
+- conditions:
+  - label=hotfix
+  name: high prio
+  priority: high
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: queueme
+queue_rules:
+- merge_conditions:
+  - label=mergeme
+  name: default
+  queue_conditions:
+  - label=queue
+  update_method: rebase
