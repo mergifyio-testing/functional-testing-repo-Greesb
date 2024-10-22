@@ -1,0 +1,12 @@
+merge_protections:
+- if:
+  - label = hotfix
+  name: team test in success conds
+  success_conditions:
+  - approved-reviews-by=@mergifyio-testing/bot
+- if:
+  - label = hotfix
+  - approved-reviews-by=@mergifyio-testing/bot
+  name: team test in if conds
+  success_conditions:
+  - '#approved-reviews-by>=2'
