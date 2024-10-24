@@ -1,9 +1,11 @@
 queue_rules:
-- merge_conditions:
-  - label=mergeme
-  name: default
-  queue_conditions:
-  - label=queue
-  speculative_checks: 10
+  - merge_conditions:
+      - label=mergeme
+    name: default
+    queue_conditions:
+      - label=queue
 shared:
   bla: 123
+
+merge_queue:
+  max_parallel_checks: 10
