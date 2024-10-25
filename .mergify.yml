@@ -1,3 +1,7 @@
+partition_rules:
+- conditions:
+  - files~=^projA/
+  name: projA
 pull_request_rules:
 - actions:
     queue:
