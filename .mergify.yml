@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: Add to merge queue
+- actions:
+    comment:
+      message: Freeze! {{queue_freeze_reason}}
+    label:
+      toggle:
+      - frozen
+  conditions:
+  - queue-frozen
+  name: Label and comment queue frozen
