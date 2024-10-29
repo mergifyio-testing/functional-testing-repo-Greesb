@@ -1,0 +1,14 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - label=queue
+  name: Queue
+queue_rules:
+- allow_inplace_checks: true
+  batch_size: 1
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  update_method: rebase
