@@ -1,0 +1,17 @@
+merge_queue:
+  max_parallel_checks: 2
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20241101200948/test_unqueue_all_pr_when_unexpected_changes_on_draft_pr/main
+  - label=queue
+  name: Merge priority high
+queue_rules:
+- allow_inplace_checks: true
+  batch_max_wait_time: 0 s
+  batch_size: 3
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
