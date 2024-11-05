@@ -1,0 +1,4 @@
+queue_rules:
+- conditions:
+  - label=queue
+  name: default
