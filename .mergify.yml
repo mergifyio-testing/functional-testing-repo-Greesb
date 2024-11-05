@@ -1,0 +1,17 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20241105214940/test_queue_freeze_then_priority_change/main
+  name: Enqueue
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/high-ci
+  name: urgent
+  queue_conditions:
+  - label=queue-urgent
+- merge_conditions:
+  - status-success=continuous-integration/default-ci
+  name: default
+  queue_conditions:
+  - label=queue
