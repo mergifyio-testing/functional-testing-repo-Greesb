@@ -1,6 +1,1 @@
-queue_rules:
-- merge_conditions:
-  - label=mergeme
-  name: default
-  queue_conditions:
-  - label=queue
+foofoobarbar
