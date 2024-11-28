@@ -1,0 +1,17 @@
+max_parallel_checks: 2
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20241128170852/test_batch_max_failure_resolution_attempts/main
+  - label=queue
+  name: Automatic merge
+queue_rules:
+- allow_inplace_checks: false
+  batch_max_failure_resolution_attempts: 0
+  batch_max_wait_time: 0 s
+  batch_size: 3
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
