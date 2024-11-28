@@ -1,0 +1,16 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20241128161511/test_batch_split_checks_timeout/main
+  - label=queue
+  name: default merge
+queue_rules:
+- allow_inplace_checks: false
+  batch_max_wait_time: 0 s
+  batch_size: 3
+  checks_timeout: 10 m
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
