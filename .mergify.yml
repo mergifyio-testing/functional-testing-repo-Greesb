@@ -5,5 +5,10 @@ queue_rules:
   queue_conditions:
   - label=queue
   speculative_checks: 10
+- merge_conditions:
+  - label=mergemefast
+  name: hotfix
+  queue_conditions:
+  - label=hotfix
 shared:
   bla: 123
