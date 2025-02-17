@@ -25,4 +25,6 @@ queue_rules:
 - allow_inplace_checks: false
   conditions:
   - status-success=continuous-integration/slow-ci
+  disallow_checks_interruption_from_queues:
+  - default
   name: default
