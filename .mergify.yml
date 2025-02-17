@@ -1,0 +1,16 @@
+priority_rules:
+- conditions:
+  - label=urgent
+  name: high priority
+  priority: high
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions: []
+  name: Queue
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  queue_conditions:
+  - label=queue
