@@ -1,0 +1,10 @@
+pull_request_rules:
+- actions:
+    github_actions:
+      workflow:
+        dispatch:
+        - ref: 20250227152500/test_gha_dispatch_forbidden/main
+          workflow: workflow_dispatch_forbidden.yaml
+  conditions:
+  - label=dispatch
+  name: Dispatch GHA
