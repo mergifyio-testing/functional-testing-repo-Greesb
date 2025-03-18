@@ -1,0 +1,20 @@
+priority_rules:
+- conditions:
+  - label=hotfix
+  name: high prio
+  priority: high
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: queueme
+queue_rules:
+- allow_inplace_checks: true
+  merge_conditions:
+  - check-success=continuous-integration/fake-ci-2
+  name: default
+  queue_conditions:
+  - label=queue
+  update_bot_account: mergify-test4
+  update_method: rebase
