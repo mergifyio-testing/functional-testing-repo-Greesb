@@ -1,0 +1,9 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: Queue
+queue_rules:
+- merge_conditions: []
+  name: default
