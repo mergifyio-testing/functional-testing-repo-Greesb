@@ -1,0 +1,15 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+      update_bot_account: mergify-test4
+      update_method: rebase
+  conditions:
+  - base=20250318175222/test_queue_with_rebase_update_method/main
+  - label=queue
+  name: default merge
+queue_rules:
+- autosquash: false
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
