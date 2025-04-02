@@ -1,0 +1,9 @@
+queue_rules:
+- name: default
+  routing_conditions:
+  - status-success=continuous-integration/fake-ci-default
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: specialq
+  routing_conditions:
+  - status-success=continuous-integration/fake-ci-special
