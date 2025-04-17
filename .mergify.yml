@@ -1,0 +1,22 @@
+merge_queue:
+  max_parallel_checks: 5
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20250417153032/test_manually_merged_queued_pr/main
+  - label=queue
+  name: merge default
+- actions:
+    comment:
+      message: This PR has been merged manually
+  conditions:
+  - base=20250417153032/test_manually_merged_queued_pr/main
+  - queue-dequeue-reason=pr-manually-merged
+  name: comnment if PR has been merged manually
+queue_rules:
+- allow_inplace_checks: false
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
