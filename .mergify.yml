@@ -1,0 +1,18 @@
+pull_request_rules:
+- actions:
+    merge:
+      method: merge
+  conditions:
+  - base=20250417151509/TBAtest_backport_assignee_does_not_exist_is_ignored/main
+  - label=backport-#3.1
+  name: Merge on main
+- actions:
+    backport:
+      assignees:
+      - mergify-test-1234567890
+      branches:
+      - 20250417151509/TBAtest_backport_assignee_does_not_exist_is_ignored/stable/#3.1
+  conditions:
+  - base=20250417151509/TBAtest_backport_assignee_does_not_exist_is_ignored/main
+  - label=backport-#3.1
+  name: Backport to stable/#3.1
