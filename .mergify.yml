@@ -1,0 +1,19 @@
+partition_rules:
+- conditions:
+  - files~=^back/
+  name: projA
+- conditions:
+  - files~=^front/
+  name: projB
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20250417162454/test_queue_partitions_setup_changes/main
+  name: Automatic merge
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
