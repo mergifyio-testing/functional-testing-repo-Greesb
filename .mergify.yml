@@ -1,0 +1,23 @@
+merge_protections:
+- if:
+  - base=20250418091229/test_merge_protections_queue_injection_with_deployments/main
+  name: Applied rule
+  success_conditions:
+  - check-success=continuous-integration/fake-ci
+- if:
+  - base=some-other-branch
+  name: Ignored rule
+  success_conditions:
+  - check-success=continuous-integration/another-ci
+merge_protections_settings:
+  reporting_method: deployments
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20250418091229/test_merge_protections_queue_injection_with_deployments/main
+  - label=queue
+  name: default
+queue_rules:
+- allow_inplace_checks: false
+  name: default
