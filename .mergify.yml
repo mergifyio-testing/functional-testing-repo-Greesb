@@ -1,6 +1,7 @@
-queue_rules:
-- merge_conditions:
-  - label=mergeme
-  name: default
-  queue_conditions:
-  - label=queue
+pull_request_rules:
+  - name: imtransformed
+    conditions: []
+    actions:
+      label:
+        add:
+          - autobotsrollout
