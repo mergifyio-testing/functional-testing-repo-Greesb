@@ -1,14 +1,21 @@
 queue_rules:
-- merge_conditions:
-  - label=mergeme
-  name: default
-  queue_conditions:
-  - label=queue
-  speculative_checks: 10
-- merge_conditions:
-  - label=mergemefast
-  name: hotfix
-  queue_conditions:
-  - label=hotfix
+  - merge_conditions:
+      - label=mergeme
+    name: default
+    queue_conditions:
+      - label=queue
+  - merge_conditions:
+      - label=mergemefast
+    name: hotfix
+    queue_conditions:
+      - label=hotfix
 shared:
   bla: 123
+
+merge_queue:
+  max_parallel_checks: 10
+priority_rules:
+  - name: priority for queue `default`
+    conditions:
+      - label=queue
+    priority: 2250
