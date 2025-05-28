@@ -1,0 +1,15 @@
+merge_queue:
+  max_parallel_checks: 1
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - check-success=continuous-integration/fake-ci
+  - base=20250528120703/test_queue_auto_reembark/main
+  name: Queue
+queue_rules:
+- allow_inplace_checks: true
+  conditions:
+  - check-success=continuous-integration/second-ci
+  name: default
