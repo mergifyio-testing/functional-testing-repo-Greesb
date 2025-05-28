@@ -1,0 +1,13 @@
+priority_rules:
+- conditions:
+  - label=urgent
+  name: high priority
+  priority: high
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - base=20250528145440/test_pull_request_implicitly_merged/main
+  name: default merge
+queue_rules:
+- name: default
