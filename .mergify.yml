@@ -1,0 +1,32 @@
+priority_rules:
+- conditions:
+  - label=hotfix
+  name: hotfix
+  priority: high
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label!=manual merge
+  name: automatic merge
+queue_rules:
+- allow_inplace_checks: true
+  merge_conditions:
+  - or:
+    - label=hotfix
+    - schedule = Mon-Fri 09:00-17:30[Europe/Paris]
+  merge_method: squash
+  name: default
+  queue_conditions:
+  - -label=botupdate
+- allow_inplace_checks: true
+  batch_max_wait_time: 5 min
+  batch_size: 7
+  commit_message_template: null
+  merge_conditions:
+  - schedule = Mon-Fri 09:00-17:30[Europe/Paris]
+  merge_method: merge
+  name: automated updates
+  queue_branch_merge_method: fast-forward
+  queue_conditions:
+  - label=botupdate
