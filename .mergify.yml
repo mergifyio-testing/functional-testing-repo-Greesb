@@ -1,0 +1,17 @@
+merge_queue:
+  max_parallel_checks: 1
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20250623164012/test_queue_with_rebase_update_method/main
+  - label=queue
+  name: default merge
+queue_rules:
+- autosquash: false
+  conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
+  update_bot_account: '{% if 1 -%}mergify-test4{% endif -%}'
+  update_method: rebase
