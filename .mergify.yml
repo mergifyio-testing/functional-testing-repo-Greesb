@@ -1,14 +1,14 @@
 queue_rules:
-- allow_inplace_checks: false
-  merge_conditions:
-  - label=mergeme
-  name: default
-  queue_conditions:
-  - label=queue
-- merge_conditions:
-  - label=mergemefast
-  name: hotfix
-  queue_conditions:
-  - label=hotfix
+  - allow_inplace_checks: false
+    merge_conditions:
+      - label=mergeme
+    name: default
+    queue_conditions:
+      - label=queue
+  - merge_conditions:
+      - label=mergemefast
+    name: hotfix
+    queue_conditions:
+      - label=hotfix
 shared:
   bla: 123
