@@ -1,0 +1,9 @@
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - label=mergeme
+  name: default
+  queue_conditions:
+  - label=queue
+shared:
+  bla: 123
