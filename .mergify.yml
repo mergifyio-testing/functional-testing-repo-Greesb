@@ -1,0 +1,25 @@
+merge_queue:
+  max_parallel_checks: 1
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - -draft
+  - -closed
+  - -merged
+  - -conflict
+  - base=20250708095241/test_queue_checks_and_branch/main
+  - label=flag:merge
+  name: merge
+queue_rules:
+- branch_protection_injection_mode: merge
+  merge_conditions:
+  - check-success=Summary
+  - check-success=ci/status
+  - check-success=ci/service-test
+  - check-success=ci/pipelines
+  - '#approved-reviews-by>=1'
+  - -label=flag:wait
+  name: default
+  update_method: rebase
