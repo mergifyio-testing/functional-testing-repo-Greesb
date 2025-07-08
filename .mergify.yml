@@ -10,7 +10,7 @@ pull_request_rules:
   name: Merge default
 queue_rules:
 - branch_protection_injection_mode: none
-  merge_bot_account: mergify-test4
+  merge_bot_account: mergify-test1
   merge_conditions:
   - status-success=continuous-integration/fake-ci-merge
   name: default
