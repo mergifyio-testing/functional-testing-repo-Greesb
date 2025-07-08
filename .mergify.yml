@@ -1,0 +1,13 @@
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20250708072519/test_queue_fast_forward_with_retries/main
+  - label=queue
+  name: merge fast-forward
+queue_rules:
+- merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  merge_method: fast-forward
+  name: default
