@@ -1,0 +1,4 @@
+commands_restrictions:
+  copy:
+    conditions:
+    - sender-permission=admin
