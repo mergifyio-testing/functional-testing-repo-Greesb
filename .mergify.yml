@@ -1,0 +1,8 @@
+merge_protections:
+- if:
+  - base=20250718072941/test_merge_protections_comment_and_deployment_posted_and_edited/main
+  name: test
+  success_conditions:
+  - label=ok
+merge_protections_settings:
+  reporting_method: deployments
