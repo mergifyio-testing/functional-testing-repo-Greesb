@@ -1,0 +1,5 @@
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - check-success=continuous-integration/fake-ci
+  name: default
