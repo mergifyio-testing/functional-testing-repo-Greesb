@@ -1,0 +1,21 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  - base=20250730073200/test_check_run_inserted_and_updated/main
+  name: Queue
+- actions:
+    post_check:
+      title: "{% if check_succeed %}\n                        Feature requirements
+        are present.\n                        {% else %}\n                        Feature
+        requirements are missing.\n                        {% endif %}"
+  conditions:
+  - base=20250730073200/test_check_run_inserted_and_updated/main
+  name: feature requirements
+queue_rules:
+- allow_inplace_checks: false
+  batch_size: 2
+  merge_conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
