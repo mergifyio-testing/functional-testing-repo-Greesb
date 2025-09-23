@@ -1,9 +1,9 @@
 partition_rules:
 - conditions:
-  - files~=^back/
+  - files~=^front/
   name: projA
 - conditions:
-  - files~=^front/
+  - files~=^back/
   name: projB
 pull_request_rules:
 - actions:
