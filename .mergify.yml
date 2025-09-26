@@ -1,0 +1,11 @@
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: Queue
+queue_rules:
+- allow_inplace_checks: false
+  merge_conditions:
+  - check-success=ci
+  name: default
