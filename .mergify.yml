@@ -1,0 +1,11 @@
+merge_queue:
+  max_parallel_checks: 1
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: Queue
+queue_rules:
+- merge_conditions: []
+  name: default
