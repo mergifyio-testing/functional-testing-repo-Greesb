@@ -1,0 +1,13 @@
+merge_queue:
+  max_parallel_checks: 1
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20251016142205/test_unqueue_on_synchronise_and_rule_still_match_then_requeue/main
+  name: Merge priority high
+queue_rules:
+- conditions:
+  - status-success=other-ci
+  name: default
