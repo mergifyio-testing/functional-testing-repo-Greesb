@@ -1,0 +1,14 @@
+merge_queue:
+  max_parallel_checks: 1
+pull_request_rules:
+- actions:
+    queue: {}
+  conditions:
+  - label=queue
+  name: automatic merge
+queue_rules:
+- name: default
+  queue_conditions:
+  - status-success=continuous-integration/fake-ci
+  update_bot_account: mergify-test4
+  update_method: rebase
