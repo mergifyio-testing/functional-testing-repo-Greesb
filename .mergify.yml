@@ -1,0 +1,13 @@
+merge_queue:
+  max_parallel_checks: 5
+pull_request_rules:
+- actions:
+    queue:
+      name: default
+  conditions:
+  - base=20251020160718/test_queue_rule_deleted/main
+  name: Merge me
+queue_rules:
+- conditions:
+  - status-success=continuous-integration/fake-ci
+  name: default
